@@ -1,0 +1,13 @@
+version: '3'
+services:
+  db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: ${DATABASE_USER}
+      POSTGRES_PASSWORD: ${DATABASE_PSSWD}
+      POSTGRES_DB: rejane_db
+    ports:
+      - '5432:5432'
+    volumes:
+      - './postgres-data:/var/lib/postgresql/data'

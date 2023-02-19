@@ -15,8 +15,6 @@ Para rodar esse projeto, você vai precisar adicionar as seguintes variáveis de
 
 ## Stack utilizada
 
-**Front-end:** React, Styled-Components, Axios
-
 **Back-end:** Node, Fastify, Prisma, Docker
 
 

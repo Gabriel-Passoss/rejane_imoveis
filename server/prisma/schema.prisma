@@ -13,11 +13,11 @@ datasource db {
 model Property {
   id              Int               @id @default(autoincrement())
   title           String
-  price_sell      Float
-  price_rent      Float
-  price_season    Float
-  iptu            Float
-  condominium     Float
+  price_sell      Float?
+  price_rent      Float?
+  price_season    Float?
+  iptu            Float?
+  condominium     Float?
   typeOfBusiness  TypeOfBusiness
   date            DateTime          @default(now())
   images          Image[]
@@ -26,7 +26,7 @@ model Property {
   neighborhood    String
   city            String
   state           String
-  description     String
+  description     String?
 }
 
 model Image {
@@ -37,20 +37,21 @@ model Image {
 }
 
 model Characteristics {
-  id              Int      @id @default(autoincrement())
-  rooms           Int      @default(0)
-  car             Int      @default(0)
-  bathrooms       Int      @default(0)
-  suites          Int      @default(0)
-  kitchens        Int      @default(0)
-  total_area      Float    @default(0)
-  private_area    Float    @default(0)
-  characteristics String[]
-  property        Property @relation(fields: [propertyID], references: [id])
-  propertyID      Int
+  id             Int      @id @default(autoincrement())
+  rooms          Int      @default(0)
+  car            Int      @default(0)
+  bathrooms      Int      @default(0)
+  suites         Int      @default(0)
+  kitchens       Int      @default(0)
+  total_area     Float    @default(0)
+  private_area   Float    @default(0)
+  infrastructure String[]
+  property       Property @relation(fields: [propertyID], references: [id])
+  propertyID     Int
 }
 
 enum TypeOfBusiness {
   RENT
   SELL
+  SEASON
 }

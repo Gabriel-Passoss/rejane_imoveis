@@ -13,5 +13,6 @@ export async function propertiesRoutes(app: FastifyInstance) {
 
   // Cria um imóvel 
   app.post('/properties', async (request, reply) => {
+    
   })
 }

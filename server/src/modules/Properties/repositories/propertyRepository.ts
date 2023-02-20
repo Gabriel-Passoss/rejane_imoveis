@@ -47,7 +47,12 @@ class PropertyRepository {
   //function to list all products
   async listAll() {
     await prisma.$connect()
-    const allProducts = await prisma.property.findMany()
+    const allProducts = await prisma.property.findMany({
+      include: {
+        characteristics: true,
+        images: true
+      }
+    })
     await prisma.$disconnect()
     return allProducts
   }

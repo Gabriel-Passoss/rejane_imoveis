@@ -1,5 +1,6 @@
 import { FastifyInstance } from "fastify";
 import { z } from "zod";
+
 import { CreatePropertyService } from "../modules/Properties/services/createPropertyService";
 import { PropertyRepository } from "../modules/Properties/repositories/propertyRepository";
 
@@ -21,7 +22,7 @@ const characteristicsSchema = z.object({
   infrastructure: z.array(z.string())
 })
 
-const createPropertySchema = z.object({
+const propertySchema = z.object({
   title: z.string(),
   price_sell: z.number().optional(),
   price_rent: z.number().optional(),
@@ -52,7 +53,7 @@ export async function propertiesRoutes(app: FastifyInstance) {
 
   // Cria um imóvel 
   app.post('/properties', async (request, reply) => {
-    const body = createPropertySchema.parse(request.body)
+    const body = propertySchema.parse(request.body)
     const property = await createPropertyService.execute(body)
     return property
   })

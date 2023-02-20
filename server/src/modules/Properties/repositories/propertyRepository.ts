@@ -1,51 +1,13 @@
 import { PrismaClient } from '@prisma/client'
+import { CreatePropertyDTO } from '../models/Property'
 
 const prisma = new PrismaClient()
 
-interface Image {
-  id: number,
-  url: string,
-  propertyID: number
-}
-
-interface Characteristics {
-  id: number,
-  rooms: number,
-  car: number,
-  bathrooms: number,
-  suites: number,
-  kitchens: number,
-  total_area: number,
-  private_area: number,
-  infrastructure: string[],
-  propertyID: number
-}
-
-interface CreatePropertyDTO {
-  id: number,
-  title: string,
-  price_sell?: number,
-  price_rent?: number,
-  price_season?: number,
-  iptu?: number,
-  condominium?: number
-  typeOfBusiness: 'RENT' | 'SELL' | 'SEASON',
-  date: Date,
-  images: Image,
-  characteristics: Characteristics,
-  street: string,
-  neighborhood: string,
-  city: string,
-  state: string,
-  description?: string
-}
-
-
-class ProductsRepository {
+class PropertyRepository {
   //function to create a product
   async create(property: CreatePropertyDTO) { 
     await prisma.$connect()
-    await prisma.property.create({
+    const newProperty = await prisma.property.create({
       data: {
         title: property.title,
         price_sell: property.price_sell,
@@ -79,6 +41,7 @@ class ProductsRepository {
       }
     })
     await prisma.$disconnect()
+    return newProperty
   }
 
   //function to list all products
@@ -127,4 +90,4 @@ class ProductsRepository {
   }
 }
 
-export { ProductsRepository }
+export { PropertyRepository }

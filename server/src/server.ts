@@ -1,10 +1,4 @@
-import fastify from 'fastify'
-
-import { propertiesRoutes } from './routes/properties'
-
-const app = fastify()
-
-app.register(propertiesRoutes)
+import { app } from "./app"
 
 app.listen({
   port: 3333

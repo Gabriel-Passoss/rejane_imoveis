@@ -55,6 +55,7 @@ export async function propertiesRoutes(app: FastifyInstance) {
   app.post('/properties', async (request, reply) => {
     const body = propertySchema.parse(request.body)
     const property = await createPropertyService.execute(body)
-    return property
+    
+    return reply.status(201).send(property)
   })
 }

@@ -5,7 +5,10 @@
   "main": "index.js",
   "scripts": {
     "dev": "tsx watch ./src/server.ts",
-    "test": "vitest"
+    "migrate:test": "dotenv -e .env.test -- npx prisma migrate deploy",
+    "docker:up": "docker-compose up -d",
+    "docker:down": "docker-compose down",
+    "test": "npm run docker:up && npm run prisma migrate deploy && vitest"
   },
   "keywords": [],
   "author": "",
@@ -21,6 +24,7 @@
   },
   "dependencies": {
     "@prisma/client": "^4.10.1",
+    "dotenv-cli": "^7.0.0",
     "fastify": "^4.13.0",
     "zod": "^3.20.6"
   }

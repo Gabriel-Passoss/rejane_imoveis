@@ -23,7 +23,7 @@ Para rodar esse projeto, você vai precisar adicionar as seguintes variáveis de
 - [x]  O usuário deve conseguir listar todos os anúncios
 - [ ]  O usuário deve conseguir filtrar os anúncios
 - [x]  O usuário deve conseguir criar novos anúncios
-- [ ]  Deve ser possível procurar um anúncio pelo ID
+- [x]  Deve ser possível procurar um anúncio pelo ID
 
 ### Regras de negócio
 

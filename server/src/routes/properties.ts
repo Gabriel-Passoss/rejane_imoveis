@@ -41,21 +41,23 @@ const propertySchema = z.object({
 
 export async function propertiesRoutes(app: FastifyInstance) {
   // Lista todos os imóveis
-  app.get('/properties', async () => {
+  app.get('/properties', async (request, reply) => {
     const properties = await propertyRepository.listAll()
-    return properties
+    return reply.status(200).send(properties)
   })
 
   //Lista um imóvel específico
   app.get('/properties/:id', async (request,reply) => {
-
+    //@ts-ignore
+    const property = await propertyRepository.findByID(request.params.id)
+    return reply.code(200).send(property)
   })
 
   // Cria um imóvel 
   app.post('/properties', async (request, reply) => {
     const body = propertySchema.parse(request.body)
     const property = await createPropertyService.execute(body)
-    
+
     return reply.status(201).send(property)
   })
 }

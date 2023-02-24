@@ -76,6 +76,10 @@ class PropertyRepository {
     const product = await prisma.property.findUnique({
       where: {
         id: Number(id)
+      },
+      include: {
+        characteristics: true,
+        images: true,
       }
     })
     await prisma.$disconnect()

@@ -6,7 +6,6 @@ class CreatePropertyService {
 
   async execute(body: CreatePropertyDTO) {
     const productAlreadyExists = await this.PropertyRepository.findByTitle(body.title)
-
     if (productAlreadyExists) {
       const message = `Product ${body.title} already exists`
       return {message}

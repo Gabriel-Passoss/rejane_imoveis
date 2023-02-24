@@ -24,6 +24,8 @@ Para rodar esse projeto, você vai precisar adicionar as seguintes variáveis de
 - [ ]  O usuário deve conseguir filtrar os anúncios
 - [x]  O usuário deve conseguir criar novos anúncios
 - [x]  Deve ser possível procurar um anúncio pelo ID
+- [x]  Deve haver um endpoint para listagem de cidades que possuem anúncios
+- [x]  Deve ser possível deletar um anúncio do site
 
 ### Regras de negócio
 

@@ -57,6 +57,14 @@ class PropertyRepository {
     return allProducts
   }
 
+  async listAllCities() {
+    const cities = await prisma.property.groupBy({
+      by: ['city'],
+    })
+    
+    return cities
+  }
+
   //function to find and product by name
   async findByTitle(title: string) {
     await prisma.$connect()
@@ -87,7 +95,7 @@ class PropertyRepository {
   }
 
   //Make error handling and delete image in the future
-  async deleteProduct(id: string) {
+  async deleteProperty(id: string) {
     await prisma.$connect()
     const productDeleted = await prisma.property.delete({
       where: {

@@ -4,11 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "tsx watch ./src/server.ts",
+    "dev": "dotenv -e .env.development tsx watch ./src/server.ts",
     "migrate:test": "dotenv -e .env.test -- npx prisma migrate deploy",
-    "docker:up": "docker-compose up -d",
+    "docker:up": "docker-compose up test -d",
     "docker:down": "docker-compose down",
-    "test": "npm run docker:up && npm run prisma migrate deploy && vitest"
+    "test": "npm run docker:up && dotenv -e .env.test prisma migrate deploy && dotenv -e .env.test vitest",
+    "dbtest": "dotenv -e .env.test prisma studio"
   },
   "keywords": [],
   "author": "",

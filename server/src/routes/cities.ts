@@ -1,7 +1,7 @@
 import { FastifyInstance } from "fastify";
 import { PropertyRepository } from "../modules/Properties/repositories/propertyRepository";
 
-const propertyRepository = new PropertyRepository()
+export const propertyRepository = new PropertyRepository()
 
 export async function citiesRoutes(app: FastifyInstance) {
   app.get('/cities', async (request, reply) => {

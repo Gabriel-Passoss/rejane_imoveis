@@ -1,7 +1,7 @@
 import { PrismaClient } from '@prisma/client'
 import { CreatePropertyDTO } from '../models/Property'
 
-const prisma = new PrismaClient()
+export const prisma = new PrismaClient()
 
 class PropertyRepository {
   //function to create a product

@@ -16,7 +16,7 @@ services:
   test:
     image: postgres:13
     restart: always
-    container_name: integration-tests-prisma
+    container_name: e2e-prisma
     ports:
       - '5433:5432'
     environment:

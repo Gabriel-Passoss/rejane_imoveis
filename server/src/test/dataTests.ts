@@ -2,6 +2,7 @@ export const createProperty = {
   "title": "Test",
   "price_sell": 2000000,
   "price_rent": 10000,
+  "price_season": 0,
   "iptu": 2300,
   "condominium": 800,
   "typeOfBusiness": "SELL",
@@ -18,7 +19,7 @@ export const createProperty = {
     "private_area": 1500,
     "infrastructure": [
       "Kitchen", "Pool", "Soccer"
-    ]
+    ],
   },
   "street": "Rua Coronel Caetano",
   "neighborhood": "Coloninha",

@@ -7,6 +7,9 @@ module.exports = {
         brand: {
           700: '#084c7d'
         }
+      },
+      backgroundImage: {
+        'background-header': 'url(./src/assets/fundo-topo.jpg)'
       }
     },
   },

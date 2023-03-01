@@ -4,10 +4,14 @@ import { House, Phone, WhatsappLogo, Star } from 'phosphor-react'
 export function Header() {
   const [ isOpen, setIsOpen ] = useState<Boolean>(false)
 
+  function toggleMenu() {
+    setIsOpen(!isOpen)
+  }
+
   return (
     <header className="w-full drop-shadow-xl">
-      <section className="bg-brand-700 flex items-center justify-between py-2 px-4">
-        <div className="flex">
+      <section className="bg-brand-700 flex items-center justify-between px-12 py-2">
+        <div className="flex justify-between">
           <span className="flex items-center text-xs md:text-sm whitespace-nowrap text-white font-medium mr-10">
             <House size={20} className="mr-1"/>
             CRECI: 31.134
@@ -28,11 +32,11 @@ export function Header() {
           </span>
         </div>
       </section>
-      <div className="w-full bg-background-header px-6 py-2">
-        <div className="w-full flex items-center justify-between">
+      <div className="w-full bg-background-header py-2">
+        <div className="w-full flex items-center justify-around">
           <img src="/logo.png" alt="Logo Rejane Imóveis" className="max-w-[70%] h-auto" />
 
-          <button name="menu" className="md:hidden">
+          <button name="menu" onClick={toggleMenu} className="md:hidden">
             <svg className="h-6 w-6 fill-current text-white" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               <rect y="4" width="24" height="2"></rect>
               <rect y="11" width="24" height="2"></rect>
@@ -41,25 +45,24 @@ export function Header() {
           </button>
 
           <nav className="gap-6 hidden md:flex md:items-center md:justify-between">
-          <a href="/" className="font-medium whitespace-nowrap text-white">Inicial</a>
-          <a href="/about" className="font-medium whitespace-nowrap text-white">Quem somos</a>
-          <a href="/contact" className="font-medium whitespace-nowrap text-white">Imóveis</a>
-          <a href="/blog" className="font-medium whitespace-nowrap text-white">Blog</a>
-          <a href="/contact" className="font-medium whitespace-nowrap text-white">Fale conosco</a>
+          <a href="/" className="font-medium whitespace-nowrap text-white hover:text-[1.05rem] duration-200">Inicial</a>
+          <a href="/about" className="font-medium whitespace-nowrap text-white hover:text-[1.05rem] duration-200">Quem somos</a>
+          <a href="/contact" className="font-medium whitespace-nowrap text-white hover:text-[1.05rem] duration-200">Imóveis</a>
+          <a href="/blog" className="font-medium whitespace-nowrap text-white hover:text-[1.05rem] duration-200">Blog</a>
+          <a href="/contact" className="font-medium whitespace-nowrap text-white hover:text-[1.05rem] duration-200">Fale conosco</a>
         </nav>
       </div>
 
-      <div className="md:hidden">
-        <hr className="border-t-2 border-gray-500 my-2"/>
+    </div>
+      <div className={`${isOpen ? "opacity-100 translate-y-0" : "opacity-0"} bg-background-header border-t-[0.5px] border-gray-500 shadow-lg p-7 transition-opacity`}>
         <nav className="block">
-          <a href="/" className="font-medium text-white block py-2">Inicial</a>
+          <a href="/" className="font-medium text-white block pb-2">Inicial</a>
           <a href="/about" className="font-medium text-white block py-2">Quem somos</a>
           <a href="/contact" className="font-medium text-white block py-2">Imóveis</a>
           <a href="/blog" className="font-medium text-white block py-2">Blog</a>
-          <a href="/contact" className="font-medium text-white block py-2">Fale conosco</a>
+          <a href="/contact" className="font-medium text-white block pt-2">Fale conosco</a>
         </nav>
       </div>
-    </div>
     </header>
   )
 }

@@ -1,5 +1,6 @@
 {
   "name": "rejane_imoveis",
+  "homepage" : "http://www.rejaneimoveisbc.com.br",
   "private": true,
   "version": "0.0.0",
   "type": "module",

@@ -30,7 +30,7 @@ export function Header() {
       </section>
       <div className="w-full bg-background-header px-6 py-2">
         <div className="w-full flex items-center justify-between">
-          <img src="./src/assets/logo.png" alt="Logo Rejane Imóveis" className="max-w-[70%] h-auto" />
+          <img src="/src/assets/logo.png" alt="Logo Rejane Imóveis" className="max-w-[70%] h-auto" />
 
           <button name="menu" className="md:hidden">
             <svg className="h-6 w-6 fill-current text-white" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">

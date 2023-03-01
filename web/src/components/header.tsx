@@ -32,7 +32,7 @@ export function Header() {
           </span>
         </div>
       </section>
-      <div className="w-full bg-background-header py-2">
+      <div className="w-full bg-background-header py-4">
         <div className="w-full flex items-center justify-around">
           <img src="/logo.png" alt="Logo Rejane Imóveis" className="max-w-[70%] h-auto" />
 

@@ -1,12 +1,11 @@
-import { useState } from 'react'
-import { Controller, Navigation, Pagination } from "swiper";
+import { Navigation, Pagination } from "swiper";
 import { Swiper, SwiperSlide} from "swiper/react";
 
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
-export function ImageSwiper() {
+export function SearchArea() {
 
   return (
       <Swiper 

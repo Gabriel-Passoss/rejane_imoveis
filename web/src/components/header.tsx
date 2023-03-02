@@ -54,7 +54,7 @@ export function Header() {
       </div>
 
     </div>
-      <div className={`${isOpen ? "opacity-100 translate-y-0" : "opacity-0 hidden"} bg-background-header border-t-[0.5px] border-gray-500 shadow-lg p-7 transition-opacity`}>
+      <div className={`${isOpen ? "opacity-100 translate-y-0" : "opacity-0 hidden"} absolute z-10 bg-background-header border-t-[0.5px] border-gray-500 shadow-lg p-7 transition-opacity`}>
         <nav className="block">
           <a href="/" className={`${isOpen ? "opacity-100 translate-y-0" : "opacity-0 hidden"} md:hidden font-medium text-white block pb-2 transition-opacity duration-100`}>Inicial</a>
           <a href="/about" className={`${isOpen ? "opacity-100 translate-y-0" : "opacity-0 hidden"} md:hidden font-medium text-white block py-2 transition-opacity duration-150`}>Quem somos</a>

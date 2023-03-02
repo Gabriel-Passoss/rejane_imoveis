@@ -1,4 +1,5 @@
 import { Header } from "./components/header"
+import { ImageSwiper } from "./components/imageSwiper"
 import { WhatsappButton } from "./components/whatsappButton"
 
 export function App() {
@@ -6,6 +7,7 @@ export function App() {
     <>
       <Header />
       <WhatsappButton />
+      <ImageSwiper />
     </>
   )
 }

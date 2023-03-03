@@ -1,14 +1,15 @@
+
 import { Navigation, Pagination } from "swiper";
 import { Swiper, SwiperSlide} from "swiper/react";
 
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
+import { TypeBusinessButton } from "../components/TypeBusinessButton";
 
 export function SearchArea() {
-
   return (
-    <div className="mt-[14vh] md:mt-[20vh] bg-background-body bg-cover">
+    <div className="mt-[14vh] md:mt-[20vh] bg-background-body bg-cover flex justify-center items-end">
       <Swiper 
         modules={[Navigation, Pagination]}
         slidesPerView={1}
@@ -29,7 +30,7 @@ export function SearchArea() {
             <img src="/slide3.jpeg" alt="Slide3" className="h-[50vh] md:h-[70vh] w-[80vw]" />
           </SwiperSlide>
       </Swiper>
-
+    <TypeBusinessButton />
     </div>
       
   )

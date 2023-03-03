@@ -4,10 +4,10 @@ import { WhatsappButton } from "./components/whatsappButton"
 
 export function App() {
   return (
-    <>
+    <div>
       <Header />
       <WhatsappButton />
       <SearchArea />
-    </>
+    </div>
   )
 }

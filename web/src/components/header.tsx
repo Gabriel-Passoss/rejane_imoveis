@@ -9,8 +9,8 @@ export function Header() {
   }
 
   return (
-    <header className="w-full drop-shadow-xl">
-      <section className="bg-brand-700 flex items-center justify-between px-12 py-2">
+    <header className="absolute z-10 top-0 w-full drop-shadow-xl">
+      <section className="md:h-[5vh] bg-brand-700 flex items-center justify-between px-12 py-2">
         <div className="flex justify-between">
           <span className="flex items-center text-xs md:text-sm whitespace-nowrap text-white font-medium mr-10">
             <House size={20} className="mr-1"/>
@@ -32,7 +32,7 @@ export function Header() {
           </span>
         </div>
       </section>
-      <div className="w-full bg-background-header py-4">
+      <div className="h-[10vh] md:h-[15vh] w-full bg-background-header py-4">
         <div className="w-full flex items-center justify-around">
           <img src="/logo.png" alt="Logo Rejane Imóveis" className="max-w-[70%] h-auto" />
 
@@ -53,7 +53,7 @@ export function Header() {
         </nav>
       </div>
 
-    </div>
+      </div>
       <div className={`${isOpen ? "opacity-100 p-7" : "opacity-0"} bg-background-header border-t-[0.5px] border-gray-500 shadow-lg transition-opacity duration-200`}>
         <nav className="block">
           <a href="/" className={`${isOpen ? "opacity-100 translate-y-0" : "opacity-0 hidden"} z-30 md:hidden font-medium text-white block pb-2 transition-opacity duration-100`}>Inicial</a>

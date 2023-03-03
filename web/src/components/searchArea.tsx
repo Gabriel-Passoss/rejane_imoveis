@@ -8,7 +8,7 @@ import 'swiper/css/pagination';
 export function SearchArea() {
 
   return (
-    <div className="mt-[14vh] md:mt-[20vh]">
+    <div className="mt-[14vh] md:mt-[20vh] bg-background-body bg-cover">
       <Swiper 
         modules={[Navigation, Pagination]}
         slidesPerView={1}

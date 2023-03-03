@@ -9,7 +9,8 @@ module.exports = {
         }
       },
       backgroundImage: {
-        'background-header': 'url(/fundo-topo.jpg)'
+        'background-header': 'url(/fundo-topo.jpg)',
+        'background-body': 'url(/fundo-corpo.jpeg)'
       }
     },
   },

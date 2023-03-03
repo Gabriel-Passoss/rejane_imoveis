@@ -1,6 +1,6 @@
 import { useState, Fragment } from 'react';
 import { Menu, Combobox, Transition } from '@headlessui/react'
-import { CaretDown, MagnifyingGlass } from "phosphor-react";
+import { ArrowsDownUp, CaretDown, MagnifyingGlass } from "phosphor-react";
 
 const people = [
   { id: 1, name: 'Balneário Camboriú' },
@@ -35,9 +35,9 @@ export function SearchInput() {
     }
   }
   return (
-    <div className="flex items-center z-10">
+    <div className="flex items-center fixed z-10">
       <Menu as="div" className="inline-block text-left">
-      <Menu.Button className="inline-flex w-28 items-center justify-center rounded-l-lg bg-brand-500 px-3 py-3 text-sm font-medium text-white focus:outline-none focus-visible:ring-white focus-visible:ring-opacity-75">
+      <Menu.Button className="inline-flex w-20 md:w-28 items-center justify-center rounded-l-lg bg-brand-500 px-3 py-3 text-xs md:text-sm font-medium text-white focus:outline-none focus-visible:ring-white focus-visible:ring-opacity-75">
         {typeOfBusiness == 'BUY' ? "COMPRAR" : "ALUGAR"}
         <CaretDown className="ml-2" weight="bold" aria-hidden={true}/>
       </Menu.Button>
@@ -81,7 +81,7 @@ export function SearchInput() {
                 onChange={(event) => setQuery(event.target.value)}
               />
               <Combobox.Button className="absolute inset-y-0 right-0 flex items-center pr-2">
-                <MagnifyingGlass />
+                <ArrowsDownUp size={20} />
               </Combobox.Button>
             </div>
             <Transition
@@ -135,7 +135,7 @@ export function SearchInput() {
         </Combobox>
       </div>
 
-      <button className="inline-flex w-28 items-center justify-center rounded-r-lg bg-brand-500 px-3 py-3 text-sm font-medium text-white focus:outline-none focus-visible:ring-white focus-visible:ring-opacity-75">
+      <button className="inline-flex w-20 md:w-28 items-center justify-center rounded-r-lg bg-brand-500 px-3 py-3 text-xs md:text-sm font-medium text-white focus:outline-none focus-visible:ring-white focus-visible:ring-opacity-75">
         ENVIAR
       </button>
     </div>

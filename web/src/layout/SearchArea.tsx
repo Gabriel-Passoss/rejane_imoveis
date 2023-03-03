@@ -30,7 +30,7 @@ export function SearchArea() {
             <img src="/slide3.jpeg" alt="Slide3" className="h-[50vh] md:h-[70vh] w-full md:w-[80vw]" />
           </SwiperSlide>
       </Swiper>
-      <div className="absolute w-full flex justify-center mb-10 z-10">
+      <div className="absolute w-full flex justify-center mb-20 z-10">
         <SearchInput />
       </div>
     </div>

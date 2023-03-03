@@ -1,11 +1,11 @@
-
 import { Navigation, Pagination } from "swiper";
 import { Swiper, SwiperSlide} from "swiper/react";
+
+import { SearchInput } from "../components/SearchInput";
 
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-import { TypeBusinessButton } from "../components/TypeBusinessButton";
 
 export function SearchArea() {
   return (
@@ -30,7 +30,9 @@ export function SearchArea() {
             <img src="/slide3.jpeg" alt="Slide3" className="h-[50vh] md:h-[70vh] w-full md:w-[80vw]" />
           </SwiperSlide>
       </Swiper>
-    <TypeBusinessButton />
+      <div className="absolute w-full flex justify-center mb-10 z-10">
+        <SearchInput />
+      </div>
     </div>
       
   )

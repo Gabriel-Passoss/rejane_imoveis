@@ -19,15 +19,15 @@ export function SearchArea() {
         className=""
         >
           <SwiperSlide className="flex justify-center">
-            <img src="/slide1.webp" alt="Slide1" className="h-[50vh] md:h-[70vh] w-[80vw]" />
+            <img src="/slide1.webp" alt="Slide1" className="h-[50vh] md:h-[70vh] w-full md:w-[80vw]" />
           </SwiperSlide>
 
           <SwiperSlide className="flex justify-center">
-            <img src="/slide2.webp" alt="Slide2" className="h-[50vh] md:h-[70vh] w-[80vw]" />
+            <img src="/slide2.webp" alt="Slide2" className="h-[50vh] md:h-[70vh] w-full md:w-[80vw]" />
           </SwiperSlide>
 
           <SwiperSlide className="flex justify-center">
-            <img src="/slide3.jpeg" alt="Slide3" className="h-[50vh] md:h-[70vh] w-[80vw]" />
+            <img src="/slide3.jpeg" alt="Slide3" className="h-[50vh] md:h-[70vh] w-full md:w-[80vw]" />
           </SwiperSlide>
       </Swiper>
     <TypeBusinessButton />

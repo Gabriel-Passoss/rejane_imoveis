@@ -1,5 +1,5 @@
-import { Header } from "./components/header"
-import { SearchArea } from "./components/searchArea"
+import { Header } from "./layout/Header"
+import { SearchArea } from "./layout/SearchArea"
 import { WhatsappButton } from "./components/whatsappButton"
 
 export function App() {

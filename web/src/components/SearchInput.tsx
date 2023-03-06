@@ -35,9 +35,9 @@ export function SearchInput() {
     }
   }
   return (
-    <div className="block md:w-auto w-[70%] md:flex items-center fixed z-10">
-      <Menu as="div" className="inline-block text-left w-full">
-      <Menu.Button className="inline-flex w-full md:w-28 items-center justify-center rounded-l-lg bg-brand-500 px-3 py-3 text-xs md:text-sm font-medium text-white focus:outline-none focus-visible:ring-white focus-visible:ring-opacity-75">
+    <div className="block w-[70%] md:w-full justify-center md:flex items-center z-10">
+      <Menu as="div" className="inline-block w-full md:w-auto text-left">
+      <Menu.Button className="inline-flex w-full md:w-28 items-center justify-center rounded-l-lg md:rounded-l-lg bg-brand-500 px-3 py-3 text-xs md:text-sm font-medium text-white focus:outline-none focus-visible:ring-white focus-visible:ring-opacity-75">
         {typeOfBusiness == 'BUY' ? "COMPRAR" : "ALUGAR"}
         <CaretDown className="ml-2" weight="bold" aria-hidden={true}/>
       </Menu.Button>
@@ -135,7 +135,7 @@ export function SearchInput() {
         </Combobox>
       </div>
 
-      <button className="inline-flex w-full md:w-28 items-center justify-center rounded-r-lg bg-brand-500 px-3 py-3 text-xs md:text-sm font-medium text-white focus:outline-none focus-visible:ring-white focus-visible:ring-opacity-75">
+      <button className="inline-flex w-full md:w-28 items-center justify-center rounded-b-lg md:rounded-r-lg bg-brand-500 px-3 py-3 text-xs md:text-sm font-medium text-white focus:outline-none focus-visible:ring-white focus-visible:ring-opacity-75">
         ENVIAR
       </button>
     </div>

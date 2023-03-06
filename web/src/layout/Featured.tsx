@@ -20,7 +20,9 @@ export function Featured() {
               <MapPin size={20}/>
               Praia Brava de Itajaí - Itajaí/SC
             </span>
-            <span className="font-medium text-brand-500 text-xl md:text-base">VENDA: R$1.966.336,00</span>
+            <span className="font-medium text-brand-500 md:text-base">
+              VENDA: R$1.966.336,00
+            </span>
           </div>
           <div className="grid grid-cols-2 gap-2 place-items-center mt-4">
             <span className="flex">
@@ -52,7 +54,7 @@ export function Featured() {
               <MapPin size={20}/>
               Pioneiros - Balneário Camboriú
             </span>
-            <span className="font-medium text-brand-500 text-xl md:text-base">
+            <span className="font-medium text-brand-500 md:text-base">
               ALUGUEL: R$7.600,00/mês
             </span>
           </div>
@@ -86,7 +88,7 @@ export function Featured() {
               <MapPin size={20}/>
               Centro - Balneário Camboriú
             </span>
-            <span className="font-medium text-brand-500 text-xl md:text-base">
+            <span className="font-medium text-brand-500 md:text-base">
               VENDA: R$1990.000,00
             </span>
           </div>

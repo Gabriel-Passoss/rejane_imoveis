@@ -12,7 +12,7 @@ export function Featured() {
 
       <div className="grid grid-cols-1 md:grid-cols-3 w-full px-[7vw] gap-y-14 mt-16 place-items-center">
         
-        <a className="h-[50vh] w-[80vw] md:h-full md:w-[22vw] bg-white rounded-md drop-shadow-lg mb-10" href="">
+        <a className="h-full w-[80vw] md:h-full md:w-[22vw] bg-white rounded-md drop-shadow-lg mb-10" href="">
           <img className="md:h-[35vh]" src="https://static.useimobia.com.br/1076/imoveis/71581/M/638-1638457762-1.jpg"/>
           <div className="px-5">
             <h3 className="mt-3 font-medium text-lg md:text-base">Brava22 |Praia Brava |More com Exclusividade|</h3>
@@ -42,7 +42,7 @@ export function Featured() {
           </div>
         </a>
 
-        <a className="h-[50vh] w-[80vw] md:h-full md:w-[22vw] bg-white rounded-md drop-shadow-lg mb-10" href="">
+        <a className="h-full w-[80vw] md:h-full md:w-[22vw] bg-white rounded-md drop-shadow-lg mb-10" href="">
           <img className="md:h-[35vh]" src="https://static.useimobia.com.br/1076/imoveis/71616/M/673-1643684274-284-20-whatsapp_image_2017-08-26_at_120108_3refeita.jpg"/>
           <div className="px-5">
             <h3 className="mt-3 font-medium text-lg md:text-base">
@@ -76,7 +76,7 @@ export function Featured() {
           </div>
         </a>
 
-        <a className="h-[50vh] w-[80vw] md:h-full md:w-[22vw] bg-white rounded-md drop-shadow-lg mb-10" href="">
+        <a className="h-full w-[80vw] md:h-full md:w-[22vw] bg-white rounded-md drop-shadow-lg mb-10" href="">
           <img className="md:h-[35vh]" src="https://static.useimobia.com.br/1076/imoveis/71596/M/653-1639510804-1637178574098_4e820a89-c0bc-4f43-99e4-d6e77fd139a3-1024.jpeg"/>
           <div className="px-5">
             <h3 className="mt-3 font-medium text-lg md:text-base">

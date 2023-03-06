@@ -35,7 +35,7 @@ export function SearchInput() {
     }
   }
   return (
-    <div className="block w-[70%] md:w-full justify-center md:flex items-center fixed z-10">
+    <div className="block w-[70%] md:w-full justify-center md:flex items-center z-10">
       <Menu as="div" className="inline-block w-full md:w-auto text-left">
       <Menu.Button className="inline-flex w-full md:w-28 items-center justify-center rounded-l-lg md:rounded-l-lg bg-brand-500 px-3 py-3 text-xs md:text-sm font-medium text-white focus:outline-none focus-visible:ring-white focus-visible:ring-opacity-75">
         {typeOfBusiness == 'BUY' ? "COMPRAR" : "ALUGAR"}

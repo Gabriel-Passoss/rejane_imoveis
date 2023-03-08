@@ -23,7 +23,7 @@ export function PropertyCard(property: Property) {
   const currencyOptions = { style: 'currency', currency: 'BRL' };
 
   return (
-    <a className="h-full w-[80vw] md:h-full md:w-[22vw] bg-white rounded-md drop-shadow-lg mb-10" href="">
+    <a className="h-full w-[80vw] md:h-full md:w-[22vw] bg-white rounded-md drop-shadow-lg mb-10 hover:scale-105 duration-150" href="">
       <Swiper modules={[ Pagination ]} slidesPerView={1} loop={true} pagination={{ dynamicBullets: true }}>
       {property.images.map((image) => {
         return (

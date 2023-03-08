@@ -35,7 +35,7 @@ export function PropertyCard(property: Property) {
       </Swiper>
       <div className="px-5">
         <h3 className="mt-3 font-medium text-lg md:text-base min-h-[4rem]">{property.title}</h3>
-        <span className="flex justify-start items-center mt-2 mb-3 text-zinc-400 md:text-sm">
+        <span className="flex justify-start items-center mt-1 mb-3 min-h-[4rem] text-zinc-400 md:text-sm">
           <MapPin size={20} className="mr-2"/>
           {property.location}
         </span>
@@ -46,7 +46,7 @@ export function PropertyCard(property: Property) {
       <div className="grid grid-cols-2 gap-2 place-items-center mt-4">
         <span className="flex" title={property.total_area ? "Área Total" : "Área Privativa"}>
           <Ruler size={24} className="mr-2"/>
-          {property.total_area != 0 ? `${property.total_area}` : `${property.private_area}`}
+          {property.total_area != 0 ? `${property.total_area}` : `${property.private_area}m²`}
         </span>
         <span className="flex">
           <Bed size={24} className="mr-2"/>

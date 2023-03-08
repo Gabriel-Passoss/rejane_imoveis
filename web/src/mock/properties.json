@@ -10,10 +10,10 @@
     "typeOfBusiness": "SELL",
     "date": "",
     "images": [
-      { "id": 1, "url": "https://static.useimobia.com.br/1076/imoveis/71590…39258362-0bc0a28d-99a2-4973-a90d-0de8e8783909.jpg" },
-      { "id": 2, "url": "https://static.useimobia.com.br/1076/imoveis/71590…39258373-7ac74703-fcab-4257-b016-c9704e027294.jpg"},
-      { "id": 3, "url": "https://static.useimobia.com.br/1076/imoveis/71590…39258393-70f41c06-01d4-4f3a-82c1-fa91a5ef253f.jpg"},
-      { "id": 4, "url": "https://static.useimobia.com.br/1076/imoveis/71590…39258412-829bbf83-a08d-4e98-b21a-183214c1b71e.jpg"}
+      { "id": 1, "url": "https://static.useimobia.com.br/1076/imoveis/71590/M/647-1639258382-9facdfe6-663d-48fe-920e-013a004c4852.jpg" },
+      { "id": 2, "url": "https://static.useimobia.com.br/1076/imoveis/71590/M/647-1639258362-0bc0a28d-99a2-4973-a90d-0de8e8783909.jpg"},
+      { "id": 3, "url": "https://static.useimobia.com.br/1076/imoveis/71590/M/647-1639258373-7ac74703-fcab-4257-b016-c9704e027294.jpg"},
+      { "id": 4, "url": "https://static.useimobia.com.br/1076/imoveis/71590/M/647-1639258412-829bbf83-a08d-4e98-b21a-183214c1b71e.jpg"}
     ],
     "characteristics": {
       "id": 1,

@@ -27,6 +27,10 @@ export function SearchInput() {
             .includes(query.toLowerCase().replace(/\s+/g, ''))
         )
 
+  function handleSubmit() {
+    
+  }
+
   function handleSwitchBusinessType() {
     if (typeOfBusiness == 'BUY') {
       setTypeOfBusiness('RENT')

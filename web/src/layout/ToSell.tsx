@@ -57,7 +57,7 @@ export function ToSell() {
               Pioneiros - Balneário Camboriú/SC
             </span>
             <span className="font-medium text-brand-500 md:text-base">
-              ALUGUEL: R$480.000,00
+              VENDA: R$480.000,00
             </span>
           </div>
           <div className="grid grid-cols-2 gap-2 place-items-center mt-4">

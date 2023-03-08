@@ -1,0 +1,219 @@
+[
+  {
+    "id": "1",
+    "title": "Cobertura PORTINAX RESIDENCE - Balneário Camboriú",
+    "price_sell": 4850000,
+    "price_rent": 0,
+    "price_season": 0,
+    "iptu": 0,
+    "condominium": 0,
+    "typeOfBusiness": "SELL",
+    "date": "",
+    "images": [
+      { "id": 1, "url": "https://static.useimobia.com.br/1076/imoveis/71590…39258362-0bc0a28d-99a2-4973-a90d-0de8e8783909.jpg" },
+      { "id": 2, "url": "https://static.useimobia.com.br/1076/imoveis/71590…39258373-7ac74703-fcab-4257-b016-c9704e027294.jpg"},
+      { "id": 3, "url": "https://static.useimobia.com.br/1076/imoveis/71590…39258393-70f41c06-01d4-4f3a-82c1-fa91a5ef253f.jpg"},
+      { "id": 4, "url": "https://static.useimobia.com.br/1076/imoveis/71590…39258412-829bbf83-a08d-4e98-b21a-183214c1b71e.jpg"}
+    ],
+    "characteristics": {
+      "id": 1,
+      "rooms": 8,
+      "car": 0,
+      "bathrooms": 1,
+      "suites": 4,
+      "kitchens": 4,
+      "total_area": 0,
+      "private_area": 257.56,
+      "infrastructure": [
+        "Persianas automatizadas", "Piscina privativa", "Salão de festas", "Salão de jogos", "Cinema", "Academia"
+      ]
+    },
+    "street": "Rua 951, 241",
+    "neighborhood": "Centro",
+    "city": "Balneário Camboriú",
+    "state": "Santa Catarina",
+    "description": "Invista em Balneário Camboriú! Cobertura NOVA, ALTO PADRÃO, em região central, próximo ao Atlântico Shopping. O apartamento: – 4 suítes – Lavabo – Amplo living integrado com cozinha – Porcelanato 80x80- Portas laqueadas – Rebaixamento de gesso em todo apartamento – Infraestrutura para climatização, sonorização e internet – Janelas com persianas automatizadas (controle remoto)- Piscina privativa – 3 vagas de garagem- 257,56 m² de área privativa O edifício: – Fachada em pele de vidro – 100% pastilhado – Hall de entrada com pé direito triplo – 2 apartamentos por andar- 3 elevadores (Com gerador de energia) – 2.150 m² de área de lazer – Salão de festas – Sala de jogos – Cinema – Fitness – Sauna – SPA – Piscina com bar molhado."
+  },
+  {
+    "id": "2",
+    "title": "SALA COMERCIAL NOVA PARA VENDA NO PIONEIROS, COM 45,00 M2, EM BALNEÁRIO CAMBORIÚ",
+    "price_sell": 480000,
+    "price_rent": 0,
+    "price_season": 0,
+    "iptu": 0,
+    "condominium": 0,
+    "typeOfBusiness": "SELL",
+    "date": "",
+    "images": [
+      { "id": 1, "url": "https://static.useimobia.com.br/1076/imoveisfotos/site/71761-1675284264-650-1658420495-ff79096a-734b-4c19-9850-2f820ab733c5.jpg" },
+      { "id": 2, "url": "https://static.useimobia.com.br/1076/imoveisfotos/site/71761-1675284263-650-1658420483-619d1e70-a5cd-4df4-bff3-ae34151c796f.jpg"},
+      { "id": 3, "url": "https://static.useimobia.com.br/1076/imoveisfotos/site/71761-1675284263-650-1658420534-176091cb-4674-4b86-895d-0d181209962d.jpg"},
+      { "id": 4, "url": "https://static.useimobia.com.br/1076/imoveisfotos/site/71761-1675284263-650-1658420465-b6df9df6-1cba-4a57-bbbf-db3cd6c0fcba.jpg"}
+    ],
+    "characteristics": {
+      "id": 1,
+      "rooms": 0,
+      "car": 0,
+      "bathrooms": 1,
+      "suites": 0,
+      "kitchens": 0,
+      "total_area": 0,
+      "private_area": 45.00,
+      "infrastructure": [
+        "Persianas automatizadas", "Piscina privativa", "Salão de festas", "Salão de jogos", "Cinema", "Academia"
+      ]
+    },
+    "street": "Rua Arthur Max Dôose, 153",
+    "neighborhood": "Pioneiros",
+    "city": "Balneário Camboriú",
+    "state": "SC",
+    "description": "SALA COMERCIAL NOVA PARA VENDA NO PIONEIROS, COM 45,00 M2, EM BALNEÁRIO CAMBORIÚ, 1 BANHEIRO, VAGA DE GARAGEM. PRÉDIO COM INFRAESTRUTURA COMPLETA PARA ACESSO POR PORTAS E ELEVADORES PARA MACAS E CADEIRANTES. SALÃO DE CONVENÇÕES E SALA DE REUNIÃO COM COZINHA E LAVABOS. HELIPONTO E PORTARIA."
+  },
+  {
+    "id": "3",
+    "title": "APARTAMENTO NOVO À VENDA,3 DORMITÓRIOS, SENDO 2 SUÍTES , NO BAIRRO DA BARRA , BALNEÁRIO CAMBORIÚ, SC",
+    "price_sell": 699000,
+    "price_rent": 0,
+    "price_season": 0,
+    "iptu": 0,
+    "condominium": 0,
+    "typeOfBusiness": "SELL",
+    "date": "",
+    "images": [
+      { "id": 1, "url": "https://static.useimobia.com.br/1076/imoveis/71655/M/712-1672776546-968c2ba4-6c56-4337-942c-b050ab51756e.jpg" },
+      { "id": 2, "url": "https://static.useimobia.com.br/1076/imoveis/71655/M/712-1672775218-029bb550-0836-4eae-8f3c-83e8923f9394.jpg"},
+      { "id": 3, "url": "https://static.useimobia.com.br/1076/imoveis/71655/M/712-1672775152-2bc36a2c-bbe8-417e-9100-d71f9a041d6a.jpg"},
+      { "id": 4, "url": "https://static.useimobia.com.br/1076/imoveis/71655/M/712-1672775163-2f82e1a9-1497-4db4-86c1-6adb00d24523.jpg"}
+    ],
+    "characteristics": {
+      "id": 1,
+      "rooms": 5,
+      "car": 0,
+      "bathrooms": 3,
+      "suites": 2,
+      "kitchens": 0,
+      "total_area": 0,
+      "private_area": 0,
+      "useful_area": 107000,
+      "infrastructure": [
+        "Persianas automatizadas", "Piscina privativa", "Salão de festas", "Salão de jogos", "Cinema", "Academia"
+      ]
+    },
+    "street": "Avenida Hermógenes de Assis Feijó, 000",
+    "neighborhood": "Barra",
+    "city": "Balneário Camboriú",
+    "state": "SC",
+    "description": "Apartamento novo localizado no Bairro da Barra, próximo a Inter praias e a Barra Sul em Balneário Camboriú com 3 dormitórios, sendo 2 suítes, banheiro social, cozinha, área de serviço, terraço externo com churrasqueira, aquecimento a gás em todas as torneiras e chuveiros, piso laminado nos quartos e porcelanato nas demais áreas, portas laqueadas, forro em gesso com detalhes, garagem privativa, home box. Área de 107 m2."
+  },
+  {
+    "id": "4",
+    "title": "Apartamento à venda, vista mar, Ed.Imperialle, 3 quartos, 2 garagens, Pioneiros, Balneário Camboriú,SC",
+    "price_sell": 1550000,
+    "price_rent": 0,
+    "price_season": 0,
+    "iptu": 2160,
+    "condominium": 600,
+    "typeOfBusiness": "SELL",
+    "date": "",
+    "images": [
+      { "id": 1, "url": "https://static.useimobia.com.br/1076/imoveis/71654/M/711_476-1597783920-9e7a3fb8-6951-4077-81e5-8150f7e8d679.jpg" },
+      { "id": 2, "url": "https://static.useimobia.com.br/1076/imoveis/71654/M/711-1672765326-e6ad6872-6d95-4e6f-b437-9699e26cd926.jpg"},
+      { "id": 3, "url": "https://static.useimobia.com.br/1076/imoveis/71654/M/711_476-1597783922-130bfc2f-85d9-4112-bcc2-704bfe778f79.jpg"},
+      { "id": 4, "url": "https://static.useimobia.com.br/1076/imoveis/71654/M/711_476-1587586597-75d5b083-db60-4312-afee-9edde9354979.jpg"}
+    ],
+    "characteristics": {
+      "id": 1,
+      "rooms": 3,
+      "car": 2,
+      "bathrooms": 2,
+      "toilets": 1,
+      "suites": 1,
+      "kitchens": 0,
+      "total_area": 201,
+      "private_area": 128,
+      "useful_area": 0,
+      "infrastructure": [
+        "Persianas automatizadas", "Piscina privativa", "Salão de festas", "Salão de jogos", "Cinema", "Academia"
+      ]
+    },
+    "street": "Avenida Osmar de Souza Nunes",
+    "neighborhood": "Pioneiros",
+    "city": "Balneário Camboriú",
+    "state": "SC",
+    "description": "Excelente oportunidade, amplo apartamento semimobiliado, com 3 quartos, sendo 1 suíte e 2 suítes americanas com armários sob medida, ampla sacada com churrasqueira a carvão, sala de estar e jantar, lavabo, cozinha com armários sob medida, área de serviço, aquecedor a gás, 2 garagens lado a lado, espaçoso box de praia, vista mar. Prédio com salão de festas, piscina e sauna. localização privilegiada, uma distância de 150m da praia, próximo à Havan, roda gigante, padarias, comércio e escolas. Venha conhecer!"
+  },
+  {
+    "id": "5",
+    "title": "Apartamento diferenciado com 2 quartos, 1 vaga de garagem - Centro - Balneário Camboriú/SC",
+    "price_sell": 0,
+    "price_rent": 3400,
+    "price_season": 0,
+    "iptu": 800,
+    "condominium": 500,
+    "typeOfBusiness": "RENT",
+    "date": "",
+    "images": [
+      { "id": 1, "url": "https://static.useimobia.com.br/1076/imoveis/71653/M/710-1669749868-606-1634318351-1.jpg" },
+      { "id": 2, "url": "https://static.useimobia.com.br/1076/imoveis/71653/M/710-1672763490-6c741349-fb2d-4a4a-9710-ae986431437d.jpg"},
+      { "id": 3, "url": "https://static.useimobia.com.br/1076/imoveis/71653/M/710-1669749637-606-1634318362-png-2.jpg"},
+      { "id": 4, "url": "https://static.useimobia.com.br/1076/imoveis/71653/M/710-1672762767-156e3092-2e46-4cd2-8369-298ab23f127e.jpg"}
+    ],
+    "characteristics": {
+      "id": 1,
+      "rooms": 2,
+      "car": 1,
+      "bathrooms": 1,
+      "toilets": 0,
+      "suites": 1,
+      "kitchens": 0,
+      "total_area": 90,
+      "private_area": 76,
+      "useful_area": 0,
+      "infrastructure": [
+        "Persianas automatizadas", "Piscina privativa", "Salão de festas", "Salão de jogos", "Cinema", "Academia"
+      ]
+    },
+    "street": "Rua 990",
+    "neighborhood": "Centro",
+    "city": "Balneário Camboriú",
+    "state": "SC",
+    "description": "Apartamento semi-mobiliado de 2 quartos, ambientes com sala de estar, jantar e cozinha planejada com refrigerador, fogão, coifa e forno elétrico, amplo terraço com churrasqueira a carvão, área de serviço com armários e aquecedor, quartos com armário sob medida, um deles com cama de casal, banheiro com cerâmica até o teto, porcelanato e piso laminado nos quartos,1 vaga privativa. Prédio com elevador e salão de festas com churrasqueira; gás central."
+  },
+  {
+    "id": "6",
+    "title": "Alugo cobertura triplex frente ao mar, com 5 suítes, 3 garagens, em Balneário Camboriú,SC",
+    "price_sell": 0,
+    "price_rent": 18000,
+    "price_season": 0,
+    "iptu": 0,
+    "condominium": 3800,
+    "typeOfBusiness": "RENT",
+    "date": "",
+    "images": [
+      { "id": 1, "url": "https://static.useimobia.com.br/1076/imoveis/71620/M/677_420-1643404081-9f8c3dbe-5174-43cc-9331-de31193eefaf.jpg" },
+      { "id": 2, "url": "https://static.useimobia.com.br/1076/imoveis/71620/M/677_420-1643404121-086c8b4b-10d4-45e8-8247-81276a291b86.jpg"},
+      { "id": 3, "url": "https://static.useimobia.com.br/1076/imoveis/71620/M/677_420-1643404271-c63f9740-4c55-4ea4-b0ee-ca9541b63190.jpg"},
+      { "id": 4, "url": "https://static.useimobia.com.br/1076/imoveis/71620/M/677_420-1643404152-385e9f49-dcc8-4360-918e-2d13a1b91654.jpg"}
+    ],
+    "characteristics": {
+      "id": 1,
+      "rooms": 10,
+      "car": 1,
+      "bathrooms": 6,
+      "toilets": 2,
+      "suites": 5,
+      "kitchens": 0,
+      "total_area": 0,
+      "private_area": 714,
+      "useful_area": 0,
+      "infrastructure": [
+        "Persianas automatizadas", "Piscina privativa", "Salão de festas", "Salão de jogos", "Cinema", "Academia"
+      ]
+    },
+    "street": "Avenida Atlântica, 111",
+    "neighborhood": "Centro",
+    "city": "Balneário Camboriú",
+    "state": "SC",
+    "description": "Cobertura triplex, vista panorâmica para a praia, localização privilegiada, no Centro de Balneário Camboriú, primeiro andar área social, living, sala de jantar, lavabo, sacadas, espaço gourmet com churrasqueira, cozinha, dispensa, área de serviço e dependência completa de empregada, segundo andar 5 suítes, sacadas, closet, terceiro andar salão de festas com churrasqueira, terraço com spa, e 3 garagens. Prédio com área de lazer, piscina, academia, sala de jogos e salão de festas,"
+  }
+]

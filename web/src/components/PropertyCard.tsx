@@ -23,12 +23,12 @@ export function PropertyCard(property: Property) {
   const currencyOptions = { style: 'currency', currency: 'BRL' };
 
   return (
-    <a className="h-full w-[80vw] md:h-full md:w-[22vw] bg-white rounded-md drop-shadow-lg mb-10 hover:scale-105 duration-150" href="">
+    <a className="h-full w-[80vw] md:h-full md:w-[22vw] bg-white rounded-md drop-shadow-lg mb-10 md:hover:scale-105 md:duration-150" href="">
       <Swiper modules={[ Pagination ]} slidesPerView={1} loop={true} pagination={{ dynamicBullets: true }}>
       {property.images.map((image) => {
         return (
           <SwiperSlide className="flex justify-center">
-            <img src={image.url.toString()} alt="Foto imóvel" className="md:h-[35vh] h-[25vh] w-full" />
+            <img src={image.url.toString()} alt="Foto imóvel" className="md:h-[35vh] h-[25vh] w-full rounded-t-md" />
           </SwiperSlide>
         )
       })}
@@ -44,19 +44,19 @@ export function PropertyCard(property: Property) {
         </span>
       </div>
       <div className="grid grid-cols-2 gap-2 place-items-center mt-4">
-        <span className="flex" title={property.total_area ? "Área Total" : "Área Privativa"}>
+        <span className="flex" title={property.total_area != 0 ? "Área Total" : "Área Privativa"}>
           <Ruler size={24} className="mr-2"/>
           {property.total_area != 0 ? `${property.total_area}` : `${property.private_area}m²`}
         </span>
-        <span className="flex">
+        <span className="flex" title="Quartos">
           <Bed size={24} className="mr-2"/>
           {`${property.rooms}`}
         </span>
-        <span className="flex">
+        <span className="flex" title="Banheiros">
           <Shower size={24} className="mr-2"/>
           {`${property.bathrooms}`}
         </span>
-        <span className="flex">
+        <span className="flex" title="Vagas">
           <Car size={24} className="mr-2"/>
           {`${property.car}`}
         </span>

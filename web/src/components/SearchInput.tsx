@@ -1,6 +1,6 @@
 import { useState, Fragment } from 'react';
 import { Menu, Combobox, Transition } from '@headlessui/react'
-import { ArrowsDownUp, CaretDown, MagnifyingGlass } from "phosphor-react";
+import { ArrowsDownUp, CaretDown, Check, MapPin } from "phosphor-react";
 
 const people = [
   { id: 1, name: 'Balneário Camboriú' },
@@ -38,6 +38,7 @@ export function SearchInput() {
       setTypeOfBusiness('BUY')
     }
   }
+  
   return (
     <div className="block w-[70%] md:w-full justify-center md:flex items-center z-10">
       <Menu as="div" className="inline-block w-full md:w-auto text-left">
@@ -123,11 +124,19 @@ export function SearchInput() {
                           {selected ? (
                             <span
                               className={`absolute inset-y-0 left-0 flex items-center pl-3 ${
-                                active ? 'text-white' : 'text-teal-600'
+                                active ? 'text-white' : 'text-brand-500'
                               }`}
                             >
+                              <Check />
                             </span>
-                          ) : null}
+                          ) : 
+                          <span
+                          className={`absolute inset-y-0 left-0 flex items-center pl-3 ${
+                            active ? 'text-white' : 'text-brand-500'
+                          }`}
+                        >
+                          <MapPin />
+                        </span>}
                         </>
                       )}
                     </Combobox.Option>
@@ -139,10 +148,9 @@ export function SearchInput() {
         </Combobox>
       </div>
 
-      <button className="inline-flex w-full md:w-28 items-center justify-center rounded-b-lg md:rounded-r-lg bg-brand-500 px-3 py-3 text-xs md:text-sm font-medium text-white focus:outline-none focus-visible:ring-white focus-visible:ring-opacity-75">
+      <button className="inline-flex w-full md:w-28 items-center justify-center rounded-r-lg md:rounded-r-lg bg-brand-500 px-3 py-3 text-xs md:text-sm font-medium text-white focus:outline-none focus-visible:ring-white focus-visible:ring-opacity-75">
         ENVIAR
       </button>
     </div>
-    
   )
 }

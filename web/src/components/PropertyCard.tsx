@@ -46,7 +46,7 @@ export function PropertyCard(property: Property) {
       <div className="grid grid-cols-2 gap-2 place-items-center mt-4">
         <span className="flex" title={property.total_area != 0 ? "Área Total" : "Área Privativa"}>
           <Ruler size={24} className="mr-2"/>
-          {property.total_area != 0 ? `${property.total_area}` : `${property.private_area}m²`}
+          {property.total_area != 0 ? `${property.total_area}m²` : `${property.private_area}m²`}
         </span>
         <span className="flex" title="Quartos">
           <Bed size={24} className="mr-2"/>

@@ -34,6 +34,5 @@ export function SearchArea() {
         <SearchInput />
       </div>
     </div>
-      
   )
 }

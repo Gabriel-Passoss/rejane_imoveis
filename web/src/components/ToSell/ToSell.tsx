@@ -1,7 +1,7 @@
 import { Bed, Car, House, MapPin, Ruler, Shower } from "phosphor-react";
 
-import properties from '../mock/properties.json'
-import { PropertyCard } from "../components/PropertyCard";
+import properties from '../../mock/properties.json'
+import { PropertyCard } from "../PropertyCard";
 
 export function ToSell() {
   const sellProperties = properties.filter(property => property.typeOfBusiness === 'SELL');

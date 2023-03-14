@@ -1,7 +1,7 @@
 import { House } from "phosphor-react";
 
-import properties from '../mock/properties.json'
-import { PropertyCard } from "../components/PropertyCard";
+import properties from '../../mock/properties.json'
+import { PropertyCard } from "../PropertyCard";
 
 export function ToRent() {
   const sellProperties = properties.filter(property => property.typeOfBusiness === 'RENT');

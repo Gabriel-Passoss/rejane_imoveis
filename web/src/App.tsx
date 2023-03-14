@@ -1,10 +1,10 @@
-import { Header } from "./layout/Header"
-import { SearchArea } from "./layout/SearchArea"
+import { Header } from "./components/Header/Header"
+import { SearchArea } from "./components/SearchArea/SearchArea"
 import { WhatsappButton } from "./components/whatsappButton"
-import { Featured } from "./layout/Featured"
-import { ToSell } from "./layout/ToSell"
-import { ToRent } from "./layout/ToRent"
-import { Footer } from "./layout/Footer"
+import { Featured } from "./components/Featured/Featured"
+import { ToSell } from "./components/ToSell/ToSell"
+import { ToRent } from "./components/ToRent/ToRent"
+import { Footer } from "./components/Footer/Footer"
 
 export function App() {
   return (

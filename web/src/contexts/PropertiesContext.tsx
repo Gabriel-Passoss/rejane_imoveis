@@ -39,7 +39,7 @@ type Characteristics = {
 }
 
 type PropertiesContextData = {
-  filterProperties(): Promise<void>
+  filterProperties(typeOfBusiness: string, city: string): Promise<void>
   properties: Properties[]
 }
 
@@ -52,9 +52,13 @@ export const PropertiesContext = createContext({} as PropertiesContextData)
 export function PropertiesProvider({ children }: PropertiesProviderProps) {
   const [properties, setProperties] = useState<Properties[]>([])
 
-  async function filterProperties() {
+  async function filterProperties(typeOfBusiness: string, city: string) {
     try {
-      const response = await api.post('/properties', {})
+      const response = await api.post('/filter/by-city-and-business', {
+        typeOfBusiness,
+        city
+      })
+      setProperties(response.data)
       // Router.push('/')
 
     } catch (err) {

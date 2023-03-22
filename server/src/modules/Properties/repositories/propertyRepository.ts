@@ -1,47 +1,61 @@
 import { PrismaClient } from '@prisma/client'
 import { CreatePropertyDTO } from '../models/Property'
 
+interface filterPropertiesData {
+  typeOfBusiness: 'SELL' | 'RENT' | 'SEASON',
+  property_type: string
+  city: string
+  neighborhood: string
+  rooms: string
+  minValue: string
+  maxValue: string
+}
+
 export const prisma = new PrismaClient()
 
 class PropertyRepository {
   //function to create a product
   async create(property: CreatePropertyDTO) { 
     await prisma.$connect()
-    const newProperty = await prisma.property.create({
-      data: {
-        title: property.title,
-        price_sell: property.price_sell,
-        price_rent: property.price_rent,
-        price_season: property.price_season,
-        iptu: property.iptu,
-        condominium: property.condominium,
-        typeOfBusiness: property.typeOfBusiness,
-        images: {
-          create: {
-            url: property.images.url
-          }
-        },
-        characteristics: {
-          create: {
-            rooms: property.characteristics.rooms,
-            car: property.characteristics.car,
-            bathrooms: property.characteristics.bathrooms,
-            suites: property.characteristics.suites,
-            kitchens: property.characteristics.kitchens,
-            total_area: property.characteristics.total_area,
-            private_area: property.characteristics.private_area,
-            infrastructure: property.characteristics.infrastructure
-          }
-        },
-        street: property.street,
-        neighborhood: property.neighborhood,
-        city: property.city,
-        state: property.state,
-        description: property.description
-      }
+     const propertyCreated = property.images.map(async (image) => {
+      await prisma.property.create({
+        data: {
+          title: property.title,
+          createdBy: property.createdBy,
+          price_sell: property.price_sell,
+          price_rent: property.price_rent,
+          price_season: property.price_season,
+          iptu: property.iptu,
+          condominium: property.condominium,
+          typeOfBusiness: property.typeOfBusiness,
+          images: {
+            create: {
+              url: image.url
+            }
+          },
+          characteristics: {
+            create: {
+              rooms: property.characteristics.rooms,
+              car: property.characteristics.car,
+              bathrooms: property.characteristics.bathrooms,
+              suites: property.characteristics.suites,
+              kitchens: property.characteristics.kitchens,
+              total_area: property.characteristics.total_area,
+              private_area: property.characteristics.private_area,
+              property_type: property.characteristics.property_type,
+              infrastructure: property.characteristics.infrastructure,
+            }
+          },
+          street: property.street,
+          neighborhood: property.neighborhood,
+          city: property.city,
+          state: property.state,
+          description: property.description
+        }
+      })
     })
     await prisma.$disconnect()
-    return newProperty
+    return propertyCreated
   }
 
   //function to list all products
@@ -58,9 +72,12 @@ class PropertyRepository {
   }
 
   async listAllCities() {
-    const cities = await prisma.property.groupBy({
-      by: ['city'],
-    })
+    const cities = await prisma.property.findMany({
+      select: {
+        city: true,
+      },
+      distinct: ['city'],
+    });
     
     return cities
   }
@@ -104,6 +121,91 @@ class PropertyRepository {
     })
     await prisma.$disconnect()
     return productDeleted
+  }
+
+  async filterByCityAndBusiness(typeOfBusiness: 'SELL' | 'RENT' | 'SEASON', city: string) {
+    const properties = await prisma.property.findMany({
+      where: {
+        typeOfBusiness,
+        city
+      },
+      include: {
+        characteristics: true,
+        images: true
+      }
+    })
+    return properties
+  }
+
+  async filterProperties(body: filterPropertiesData) {
+    if(body.typeOfBusiness === 'SELL') {
+      const properties = await prisma.property.findMany({
+        where: {
+          typeOfBusiness: body.typeOfBusiness,
+          price_sell: {
+            lte: Number(body.maxValue),
+            gte: Number(body.minValue)
+          },
+          city: body.city,
+          neighborhood: body.neighborhood,
+          characteristics: {
+            rooms: Number(body.rooms),
+            property_type: body.property_type
+          }
+        },
+        include: {
+          characteristics: true,
+          images: true
+        }
+      })
+      return properties
+    }
+
+    if(body.typeOfBusiness === 'RENT') {
+      const properties = await prisma.property.findMany({
+        where: {
+          typeOfBusiness: body.typeOfBusiness,
+          price_rent: {
+            lte: Number(body.maxValue),
+            gte: Number(body.minValue)
+          },
+          city: body.city,
+          neighborhood: body.neighborhood,
+          characteristics: {
+            rooms: Number(body.rooms),
+            property_type: body.property_type
+          }
+        },
+        include: {
+          characteristics: true,
+          images: true
+        }
+      })
+      return properties
+    }
+
+    if(body.typeOfBusiness === 'SEASON') {
+      const properties = await prisma.property.findMany({
+        where: {
+          typeOfBusiness: body.typeOfBusiness,
+          price_season: {
+            lte: Number(body.maxValue),
+            gte: Number(body.minValue)
+          },
+          city: body.city,
+          neighborhood: body.neighborhood,
+          characteristics: {
+            rooms: Number(body.rooms),
+            property_type: body.property_type
+          }
+        },
+        include: {
+          characteristics: true,
+          images: true
+        }
+      })
+      return properties
+    }
   }
 }
 

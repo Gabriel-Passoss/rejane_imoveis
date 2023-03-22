@@ -24,6 +24,7 @@
     "vitest": "^0.28.5"
   },
   "dependencies": {
+    "@fastify/cors": "^8.2.1",
     "@prisma/client": "^4.10.1",
     "dotenv-cli": "^7.0.0",
     "fastify": "^4.13.0",

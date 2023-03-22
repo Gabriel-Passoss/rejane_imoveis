@@ -8,7 +8,8 @@ datasource db {
 }
 
 model Property {
-  id              Int               @id @default(autoincrement())
+  id              Int              @id @default(autoincrement())
+  createdBy       String
   title           String
   price_sell      Float?
   price_rent      Float?
@@ -16,9 +17,9 @@ model Property {
   iptu            Float?
   condominium     Float?
   typeOfBusiness  TypeOfBusiness
-  date            DateTime          @default(now())
+  date            DateTime         @default(now())
   images          Image[]
-  characteristics Characteristics[]
+  characteristics Characteristics?
   street          String
   neighborhood    String
   city            String
@@ -42,9 +43,10 @@ model Characteristics {
   kitchens       Int      @default(0)
   total_area     Float    @default(0)
   private_area   Float    @default(0)
+  property_type  String
   infrastructure String[]
   property       Property @relation(fields: [propertyID], references: [id])
-  propertyID     Int
+  propertyID     Int      @unique
 }
 
 enum TypeOfBusiness {

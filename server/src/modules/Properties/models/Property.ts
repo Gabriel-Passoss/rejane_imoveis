@@ -10,18 +10,21 @@ interface Characteristics {
   kitchens: number,
   total_area: number,
   private_area: number,
+  property_type: string
   infrastructure: string[],
+
 }
 
 export interface CreatePropertyDTO {
   title: string,
+  createdBy: string
   price_sell?: number,
   price_rent?: number,
   price_season?: number,
   iptu?: number,
   condominium?: number
   typeOfBusiness: 'RENT' | 'SELL' | 'SEASON',
-  images: Image,
+  images: Image[],
   characteristics: Characteristics,
   street: string,
   neighborhood: string,

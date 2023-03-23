@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { House, Phone, WhatsappLogo, Star } from 'phosphor-react'
+import { Link } from 'react-router-dom'
 
 export function Header() {
   const [ isOpen, setIsOpen ] = useState<Boolean>(false)
@@ -34,7 +35,9 @@ export function Header() {
       </section>
       <div className="h-[10vh] md:h-[13vh] w-full flex items-center bg-background-header py-4">
         <div className="w-full flex items-center justify-around">
-          <img src="/logo.png" alt="Logo Rejane Imóveis" className="max-w-[70%] h-auto" />
+          <Link to="/" className='max-w-[70%] h-auto'>
+            <img src="/logo.png" alt="Logo Rejane Imóveis"/>
+          </Link>
 
           <button name="menu" onClick={toggleMenu} className="md:hidden">
             <svg className="h-6 w-6 fill-current text-white" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">

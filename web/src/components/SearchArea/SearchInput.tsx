@@ -4,6 +4,7 @@ import { ArrowsDownUp, CaretDown, Check, MapPin } from "phosphor-react";
 
 import { PropertiesContext } from '../../contexts/PropertiesContext';
 import { api } from '../../services/api'
+import { useNavigate } from 'react-router-dom';
 
 interface City {
   city: string
@@ -12,9 +13,11 @@ interface City {
 export function SearchInput() {
   const [typeOfBusiness, setTypeOfBusiness] = useState('SELL')
   const [cities, setCities] = useState<City[]>([{city: 'Balneário Camboriú'}])
-  const { filterProperties } = useContext(PropertiesContext)
+  const { filterPropertiesByIDAndCities } = useContext(PropertiesContext)
+  const navigate = useNavigate()
 
   useEffect(() => {
+    console.log('chegou aqui')
    api.get('/cities').then(response => {
     let cities: City[] = []
     response.data.map((city: City) => {
@@ -37,9 +40,10 @@ export function SearchInput() {
             .includes(query.toLowerCase().replace(/\s+/g, ''))
         )
 
-  function handleSubmit() {
+  async function handleSubmit() {
     event?.preventDefault()
-    filterProperties(typeOfBusiness, selected.city)
+    await filterPropertiesByIDAndCities(typeOfBusiness, selected.city)
+    navigate('/imoveis-filtrados')
   }
 
   function handleSwitchBusinessType() {

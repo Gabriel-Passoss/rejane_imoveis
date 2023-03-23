@@ -4,6 +4,7 @@ import { SwiperSlide, Swiper } from "swiper/react";
 
 import 'swiper/css';
 import 'swiper/css/pagination';
+import { Link } from "react-router-dom";
 
 interface Property {
   id: Number
@@ -27,10 +28,9 @@ interface Images {
 
 export function PropertyCard(property: Property) {
   const currencyOptions = { style: 'currency', currency: 'BRL' };
-  const link = `/property/${property.id}`
 
   return (
-    <a className="h-full w-[80vw] md:h-full md:w-[22vw] bg-white rounded-md drop-shadow-lg mb-10 md:hover:scale-105 md:duration-150" href={link}>
+    <Link className="h-full w-[80vw] md:h-full md:w-[22vw] bg-white rounded-md drop-shadow-lg mb-10 md:hover:scale-105 md:duration-150" to={`/property/${property.id}`}>
       <Swiper modules={[ Pagination ]} slidesPerView={1} loop={true} pagination={{ dynamicBullets: true }}>
       {property.images.map((image) => {
         return (
@@ -68,6 +68,6 @@ export function PropertyCard(property: Property) {
           {`${property.car}`}
         </span>
       </div>
-    </a>
+    </Link>
   )
 }

@@ -12,7 +12,7 @@ interface City {
 
 export function SearchInput() {
   const [typeOfBusiness, setTypeOfBusiness] = useState('SELL')
-  const [cities, setCities] = useState<City[]>([{city: 'Balneário Camboriú'}])
+  const [cities, setCities] = useState<City[]>([])
   const { filterPropertiesByIDAndCities } = useContext(PropertiesContext)
   const navigate = useNavigate()
 
@@ -99,6 +99,7 @@ export function SearchInput() {
                 className="w-full border-none py-3 pl-3 pr-10 text-sm leading-5 text-gray-900 focus:ring-0"
                 displayValue={(city: City) => city.city}
                 onChange={(event) => setQuery(event.target.value)}
+                placeholder='Selecione uma cidade'
               />
               <Combobox.Button className="absolute inset-y-0 right-0 flex items-center pr-2">
                 <ArrowsDownUp size={20} />

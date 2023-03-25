@@ -4,6 +4,7 @@ import { DefaultLayout } from './layouts/DefaultLayout'
 import { Home } from './pages/Home/Home'
 import { FilteredProperties } from './pages/FilteredProperties/FilteredProperties'
 import { PropertyDetail } from './pages/Property/PropertyDetail'
+import { About } from './pages/About/About'
 
 export function Router() {
   return (
@@ -11,8 +12,8 @@ export function Router() {
       <Route path='/' element={<DefaultLayout />}>
         <Route path='/' element={<Home />}/>
         <Route path='/imoveis-filtrados' element={<FilteredProperties />}/>
+        <Route path='/quem-somos' element={<About />}/>
       </Route>
-
       <Route path="/imovel/:id" element={<PropertyDetail />} />
     </Routes>
   )

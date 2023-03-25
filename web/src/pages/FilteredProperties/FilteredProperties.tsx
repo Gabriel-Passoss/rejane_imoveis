@@ -6,8 +6,6 @@ import { PropertiesContext } from "../../contexts/PropertiesContext";
 import { PropertyCard } from "../../components/PropertyCard";
 import { FilterProperties } from "../../components/FilterProperties";
 
-
-
 export function FilteredProperties() {
   const { properties } = useContext(PropertiesContext)
   const navigate = useNavigate()

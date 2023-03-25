@@ -30,7 +30,8 @@ export function PropertyCard(property: Property) {
   const currencyOptions = { style: 'currency', currency: 'BRL' };
 
   return (
-    <Link className="h-full w-[80vw] md:h-full md:w-[22vw] bg-white rounded-md drop-shadow-lg mb-10 md:hover:scale-105 md:duration-150" to={`/property/${property.id}`}>
+    <Link className="h-full w-[80vw] md:h-full md:w-[22vw] bg-white rounded-md drop-shadow-lg mb-10 md:hover:scale-105 md:duration-150" to={`/imovel/${property.id}`}>
+      <span className="bg-brand-700 p-1 text-white absolute top-2 right-2">Código: {Number(property.id)}</span>
       <Swiper modules={[ Pagination ]} slidesPerView={1} loop={true} pagination={{ dynamicBullets: true }}>
       {property.images.map((image) => {
         return (

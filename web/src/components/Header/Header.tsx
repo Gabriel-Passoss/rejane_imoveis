@@ -10,7 +10,7 @@ export function Header() {
   }
 
   return (
-    <header className="absolute z-10 top-0 w-full drop-shadow-xl">
+    <header className="fixed z-20 top-0 w-full drop-shadow-xl">
       <section className="md:h-[5vh] bg-brand-700 flex items-center justify-between px-12 py-2">
         <div className="flex justify-between">
           <span className="flex items-center text-xs md:text-sm whitespace-nowrap text-white font-medium mr-10">

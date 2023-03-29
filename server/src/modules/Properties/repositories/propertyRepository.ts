@@ -5,7 +5,6 @@ interface filterPropertiesData {
   typeOfBusiness: 'SELL' | 'RENT' | 'SEASON',
   property_type: string
   city: string
-  neighborhood: string
   rooms: string
   minValue: string
   maxValue: string
@@ -14,11 +13,10 @@ interface filterPropertiesData {
 export const prisma = new PrismaClient()
 
 class PropertyRepository {
-  //function to create a product
-  async create(property: CreatePropertyDTO) { 
+  // function to create a product
+  async create(property: CreatePropertyDTO, images: string[]) {
     await prisma.$connect()
-     const propertyCreated = property.images.map(async (image) => {
-      await prisma.property.create({
+      const propertyCreated = await prisma.property.create({
         data: {
           title: property.title,
           createdBy: property.createdBy,
@@ -30,7 +28,7 @@ class PropertyRepository {
           typeOfBusiness: property.typeOfBusiness,
           images: {
             create: {
-              url: image.url
+              urls: images
             }
           },
           characteristics: {
@@ -53,12 +51,11 @@ class PropertyRepository {
           description: property.description
         }
       })
-    })
     await prisma.$disconnect()
     return propertyCreated
   }
 
-  //function to list all products
+  // function to list all products
   async listAll() {
     await prisma.$connect()
     const allProducts = await prisma.property.findMany({
@@ -71,6 +68,7 @@ class PropertyRepository {
     return allProducts
   }
 
+  // function that lists all cities that have real estate
   async listAllCities() {
     const cities = await prisma.property.findMany({
       select: {
@@ -82,7 +80,7 @@ class PropertyRepository {
     return cities
   }
 
-  //function to find and product by name
+  // function to find and product by name
   async findByTitle(title: string) {
     await prisma.$connect()
     const product = await prisma.property.findMany({
@@ -111,7 +109,7 @@ class PropertyRepository {
     return product
   }
 
-  //Make error handling and delete image in the future
+  // Make error handling and delete image in the future
   async deleteProperty(id: string) {
     await prisma.$connect()
     const productDeleted = await prisma.property.delete({
@@ -147,7 +145,6 @@ class PropertyRepository {
             gte: Number(body.minValue)
           },
           city: body.city,
-          neighborhood: body.neighborhood,
           characteristics: {
             rooms: Number(body.rooms),
             property_type: body.property_type
@@ -170,7 +167,6 @@ class PropertyRepository {
             gte: Number(body.minValue)
           },
           city: body.city,
-          neighborhood: body.neighborhood,
           characteristics: {
             rooms: Number(body.rooms),
             property_type: body.property_type
@@ -193,7 +189,6 @@ class PropertyRepository {
             gte: Number(body.minValue)
           },
           city: body.city,
-          neighborhood: body.neighborhood,
           characteristics: {
             rooms: Number(body.rooms),
             property_type: body.property_type
@@ -206,6 +201,20 @@ class PropertyRepository {
       })
       return properties
     }
+  }
+
+  async filterByID(id: string) {
+    const property = await prisma.property.findUnique({
+      where: {
+        id: Number(id)
+      },
+      include: {
+        characteristics: true,
+        images: true
+      }
+    })
+    
+    return property
   }
 }
 

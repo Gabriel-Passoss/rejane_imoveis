@@ -24,11 +24,31 @@ export interface CreatePropertyDTO {
   iptu?: number,
   condominium?: number
   typeOfBusiness: 'RENT' | 'SELL' | 'SEASON',
-  images: Image[],
   characteristics: Characteristics,
   street: string,
   neighborhood: string,
   city: string,
   state: string,
   description?: string
+}
+
+export interface CreatePropertyServiceData {
+  property: {
+    title: string,
+    createdBy: string
+    price_sell?: number,
+    price_rent?: number,
+    price_season?: number,
+    iptu?: number,
+    condominium?: number
+    typeOfBusiness: 'RENT' | 'SELL' | 'SEASON',
+    images: Image[],
+    characteristics: Characteristics,
+    street: string,
+    neighborhood: string,
+    city: string,
+    state: string,
+    description?: string
+  },
+  files: []
 }

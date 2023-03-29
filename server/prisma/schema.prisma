@@ -29,7 +29,7 @@ model Property {
 
 model Image {
   id         Int      @id @default(autoincrement())
-  url        String
+  urls       String[]
   property   Property @relation(fields: [propertyID], references: [id])
   propertyID Int
 }

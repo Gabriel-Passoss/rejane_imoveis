@@ -57,6 +57,7 @@ export function FilterProperties() {
 
   function handleSearch(data: SearchForm) {
     filterProperties(data)
+    navigate('/imoveis-filtrados')
   }
 
   function handleSearchByID(data: SearchByID) {

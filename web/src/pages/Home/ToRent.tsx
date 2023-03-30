@@ -18,7 +18,8 @@ export function ToRent() {
       <div className="grid grid-cols-1 md:grid-cols-3 w-full px-[7vw] gap-y-14 mt-16 place-items-center">
         {sellProperties.map((property) => {
           return (
-            <PropertyCard 
+            <PropertyCard
+            id={Number(property.id)}
             key={property.id}
             title={property.title}
             price_sell={property.price_sell}

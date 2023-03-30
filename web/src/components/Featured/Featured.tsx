@@ -17,6 +17,7 @@ export function Featured() {
       {properties.map((property) => {
         return (
           <PropertyCard 
+            id={Number(property.id)}
             key={property.id}
             title={property.title}
             price_sell={property.price_sell}

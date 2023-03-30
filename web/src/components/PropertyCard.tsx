@@ -7,7 +7,7 @@ import 'swiper/css/pagination';
 import { Link } from "react-router-dom";
 
 interface Property {
-  id: Number
+  id: number
   title: String,
   typeOfBusiness: String,
   location: String,

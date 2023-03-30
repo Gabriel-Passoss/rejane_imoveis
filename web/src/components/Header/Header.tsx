@@ -33,6 +33,7 @@ export function Header() {
           </span>
         </div>
       </section>
+      
       <div className="h-[10vh] md:h-[13vh] w-full flex items-center bg-background-header py-4">
         <div className="w-full flex items-center justify-around">
           <Link to="/" className='max-w-[70%] h-auto'>
@@ -48,22 +49,19 @@ export function Header() {
           </button>
 
           <nav className="gap-6 hidden md:flex md:items-center md:justify-between">
-          <a href="/" className="font-medium whitespace-nowrap text-white hover:text-[1.05rem] duration-200">Inicial</a>
-          <a href="/about" className="font-medium whitespace-nowrap text-white hover:text-[1.05rem] duration-200">Quem somos</a>
-          <a href="/contact" className="font-medium whitespace-nowrap text-white hover:text-[1.05rem] duration-200">Imóveis</a>
-          <a href="/blog" className="font-medium whitespace-nowrap text-white hover:text-[1.05rem] duration-200">Blog</a>
-          <a href="/contact" className="font-medium whitespace-nowrap text-white hover:text-[1.05rem] duration-200">Fale conosco</a>
-        </nav>
+            <Link to="/" className="font-medium whitespace-nowrap text-white hover:text-[1.05rem] duration-200">Inicial</Link>
+            <Link to="/quem-somos" className="font-medium whitespace-nowrap text-white hover:text-[1.05rem] duration-200">Quem somos</Link>
+            <Link to="/contact" className="font-medium whitespace-nowrap text-white hover:text-[1.05rem] duration-200">Fale conosco</Link>
+          </nav>
       </div>
 
       </div>
+
       <div className={`${isOpen ? "opacity-100 p-7" : "opacity-0"} bg-background-header border-t-[0.5px] border-gray-500 shadow-lg transition-opacity duration-200`}>
         <nav className="block">
-          <a href="/" className={`${isOpen ? "opacity-100 translate-y-0" : "opacity-0 hidden"} z-30 md:hidden font-medium text-white block pb-2 transition-opacity duration-100`}>Inicial</a>
-          <a href="/about" className={`${isOpen ? "opacity-100 translate-y-0" : "opacity-0 hidden"} md:hidden font-medium text-white block py-2 transition-opacity duration-150`}>Quem somos</a>
-          <a href="/contact" className={`${isOpen ? "opacity-100 translate-y-0" : "opacity-0 hidden"} md:hidden font-medium text-white block py-2 transition-opacity duration-200`}>Imóveis</a>
-          <a href="/blog" className={`${isOpen ? "opacity-100 translate-y-0" : "opacity-0 hidden"} md:hidden font-medium text-white block py-2 transition-opacity duration-300`}>Blog</a>
-          <a href="/contact" className={`${isOpen ? "opacity-100 translate-y-0" : "opacity-0 hidden"} md:hidden font-medium text-white block pt-2 transition-opacity duration-500`}>Fale conosco</a>
+          <Link to="/" className={`${isOpen ? "opacity-100 translate-y-0" : "opacity-0 hidden"} z-30 md:hidden font-medium text-white block pb-2 transition-opacity duration-100`}>Inicial</Link>
+          <Link to="/about" className={`${isOpen ? "opacity-100 translate-y-0" : "opacity-0 hidden"} md:hidden font-medium text-white block py-2 transition-opacity duration-150`}>Quem somos</Link>
+          <Link to="/contact" className={`${isOpen ? "opacity-100 translate-y-0" : "opacity-0 hidden"} md:hidden font-medium text-white block pt-2 transition-opacity duration-500`}>Fale conosco</Link>
         </nav>
       </div>
     </header>

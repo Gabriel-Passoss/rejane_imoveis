@@ -31,7 +31,7 @@ export function FilteredProperties() {
           {properties.map((property) => {
             return (
               <PropertyCard
-              id={property.id}
+              id={Number(property.id)}
               key={Number(property.id)}
               title={property.title}
               price_sell={property.price_sell}

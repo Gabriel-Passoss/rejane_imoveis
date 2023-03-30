@@ -1,9 +1,10 @@
 import { House } from "phosphor-react";
-
-import properties from '../../mock/properties.json'
 import { PropertyCard } from "../../components/PropertyCard";
+import { useContext } from "react";
+import { PropertiesContext } from "../../contexts/PropertiesContext";
 
 export function ToSell() {
+  const { properties } = useContext(PropertiesContext)
   const sellProperties = properties.filter(property => property.typeOfBusiness === 'SELL');
 
   return (
@@ -20,7 +21,7 @@ export function ToSell() {
           return (
             <PropertyCard 
             id={Number(property.id)}
-            key={property.id}
+            key={Number(property.id)}
             title={property.title}
             price_sell={property.price_sell}
             price_rent={property.price_rent}

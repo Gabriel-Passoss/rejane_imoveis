@@ -22,8 +22,10 @@ export function Header() {
             (47) 2122-8362
           </span>
           <span className="hidden md:flex items-center text-xs md:text-sm whitespace-nowrap text-white font-medium">
-            <WhatsappLogo size={20} className="mr-1" weight="light"/>
-            (47) 2122-8362
+            <Link to="https://api.whatsapp.com/send?phone=5547997913799&text=Ol%C3%A1%2C%20gostaria%20de%20falar%20com%20algum%20corretor" className='flex items-center'>
+              <WhatsappLogo size={20} className="mr-1" weight="light"/>
+              (47) 99791 3799
+            </Link>
           </span>
         </div>
         <div className="hidden md:flex items-center gap-2">

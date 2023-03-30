@@ -13,7 +13,7 @@ type Property = {
   condominium: Number,
   typeOfBusiness: String,
   date: Date,
-  images: Images[],
+  images: Images,
   characteristics: Characteristics,
   street: String,
   neighborhood: String,
@@ -24,7 +24,7 @@ type Property = {
 
 type Images = {
   id: Number,
-  url: String
+  urls: [string]
 }
 
 type Characteristics = {
@@ -68,12 +68,21 @@ export function PropertiesProvider({ children }: PropertiesProviderProps) {
   const [properties, setProperties] = useState<Property[]>([])
   const [filteredByIDProperty, setFilteredByIDProperty] = useState<Property>()
 
+  useEffect(() => {
+    async function getAllProperties() {
+      const Allproperties = await api.get('/properties')
+      setProperties(Allproperties.data)
+    }
+    getAllProperties()
+  }, [])
+
   async function filterPropertiesByIDAndCities(typeOfBusiness: string, city: string) {
     try {
       const response = await api.post('/filter/by-city-and-business', {
         typeOfBusiness,
         city
       })
+      console.log(response)
       setProperties(response.data)
 
     } catch (err) {

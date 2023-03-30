@@ -1,9 +1,11 @@
 import { House } from "phosphor-react";
+import { useContext } from "react";
 
-import properties from "../../mock/properties.json"
 import { PropertyCard } from "../PropertyCard";
+import { PropertiesContext } from "../../contexts/PropertiesContext";
 
 export function Featured() {
+  const { properties } = useContext(PropertiesContext)
   return (
     <div className="w-full bg-[#C2C2C2] pt-10">
       <div className="flex justify-center items-center">
@@ -18,7 +20,7 @@ export function Featured() {
         return (
           <PropertyCard 
             id={Number(property.id)}
-            key={property.id}
+            key={Number(property.id)}
             title={property.title}
             price_sell={property.price_sell}
             price_rent={property.price_rent}

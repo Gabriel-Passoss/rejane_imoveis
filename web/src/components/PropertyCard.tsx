@@ -4,12 +4,14 @@ import { SwiperSlide, Swiper } from "swiper/react";
 
 import 'swiper/css';
 import 'swiper/css/pagination';
+import { Link } from "react-router-dom";
 
 interface Property {
+  id: number
   title: String,
   typeOfBusiness: String,
   location: String,
-  images: { id: number; url: string; }[]
+  images: Images[]
   price_sell: Number,
   price_rent: Number,
   total_area: Number,
@@ -19,15 +21,21 @@ interface Property {
   car: Number
 }
 
+interface Images {
+  id: Number,
+  url: String
+}
+
 export function PropertyCard(property: Property) {
   const currencyOptions = { style: 'currency', currency: 'BRL' };
 
   return (
-    <a className="h-full w-[80vw] md:h-full md:w-[22vw] bg-white rounded-md drop-shadow-lg mb-10 md:hover:scale-105 md:duration-150" href="">
+    <Link className="h-full w-[80vw] md:h-full md:w-[22vw] bg-white rounded-md drop-shadow-lg mb-10 md:hover:scale-105 md:duration-150" to={`/imovel/${property.id}`}>
+      <span className="bg-brand-700 p-1 text-white absolute top-2 right-2">Código: {Number(property.id)}</span>
       <Swiper modules={[ Pagination ]} slidesPerView={1} loop={true} pagination={{ dynamicBullets: true }}>
       {property.images.map((image) => {
         return (
-          <SwiperSlide className="flex justify-center">
+          <SwiperSlide className="flex justify-center" key={Number(image.id)}>
             <img src={image.url.toString()} alt="Foto imóvel" className="md:h-[35vh] h-[25vh] w-full rounded-t-md" />
           </SwiperSlide>
         )
@@ -61,6 +69,6 @@ export function PropertyCard(property: Property) {
           {`${property.car}`}
         </span>
       </div>
-    </a>
+    </Link>
   )
 }

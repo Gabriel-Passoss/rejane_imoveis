@@ -1,49 +1,64 @@
-import { useState, Fragment } from 'react';
+import { useState, Fragment, useEffect, useContext } from 'react';
 import { Menu, Combobox, Transition } from '@headlessui/react'
 import { ArrowsDownUp, CaretDown, Check, MapPin } from "phosphor-react";
 
-const people = [
-  { id: 1, name: 'Balneário Camboriú' },
-  { id: 2, name: 'Florianópolis' },
-]
+import { PropertiesContext } from '../../contexts/PropertiesContext';
+import { api } from '../../services/api'
+import { useNavigate } from 'react-router-dom';
 
-interface Person {
-  id: number,
-  name: string
+interface City {
+  city: string
 }
 
 export function SearchInput() {
-  const [typeOfBusiness, setTypeOfBusiness] = useState('BUY')
-  const [selected, setSelected] = useState(people[0])
+  const [typeOfBusiness, setTypeOfBusiness] = useState('SELL')
+  const [cities, setCities] = useState<City[]>([])
+  const { filterPropertiesByIDAndCities } = useContext(PropertiesContext)
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    console.log('chegou aqui')
+   api.get('/cities').then(response => {
+    let cities: City[] = []
+    response.data.map((city: City) => {
+      cities.push(city)
+    })
+    setCities(cities)
+   })
+  }, [])
+
+  const [selected, setSelected] = useState(cities[0])
   const [query, setQuery] = useState('')
 
-  const filteredPeople =
+  const filteredCities =
     query === ''
-      ? people
-      : people.filter((person) =>
-          person.name
+      ? cities
+      : cities.filter((city) =>
+          city.city
             .toLowerCase()
             .replace(/\s+/g, '')
             .includes(query.toLowerCase().replace(/\s+/g, ''))
         )
 
-  function handleSubmit() {
-    
+  async function handleSubmit() {
+    event?.preventDefault()
+    await filterPropertiesByIDAndCities(typeOfBusiness, selected.city)
+    navigate('/imoveis-filtrados')
   }
 
   function handleSwitchBusinessType() {
-    if (typeOfBusiness == 'BUY') {
+    if (typeOfBusiness == 'SELL') {
       setTypeOfBusiness('RENT')
     } else {
-      setTypeOfBusiness('BUY')
+      setTypeOfBusiness('SELL')
     }
   }
   
   return (
-    <div className="block w-[70%] md:w-full justify-center md:flex items-center z-10">
+    <form onSubmit={handleSubmit} className="block w-[70%] md:w-full justify-center md:flex items-center z-10">
       <Menu as="div" className="inline-block w-full md:w-auto text-left">
       <Menu.Button className="inline-flex w-full md:w-28 items-center justify-center rounded-l-lg md:rounded-l-lg bg-brand-500 px-3 py-3 text-xs md:text-sm font-medium text-white focus:outline-none focus-visible:ring-white focus-visible:ring-opacity-75">
-        {typeOfBusiness == 'BUY' ? "COMPRAR" : "ALUGAR"}
+        {typeOfBusiness == 'SELL' ? "COMPRAR" : "ALUGAR"}
         <CaretDown className="ml-2" weight="bold" aria-hidden={true}/>
       </Menu.Button>
       <Transition 
@@ -59,7 +74,7 @@ export function SearchInput() {
           <div className="px-1 py-1">
             <Menu.Item>
               {({active}) => (
-                <button onClick={handleSwitchBusinessType} className={`${active ? "bg-brand-700 text-white" : "text-gray-900"} ${typeOfBusiness == 'BUY' ? "bg-brand-500 bg-opacity-40" : ""} group flex w-full items-center rounded-md px-2 py-2 font-medium text-sm`}>
+                <button onClick={handleSwitchBusinessType} className={`${active ? "bg-brand-700 text-white" : "text-gray-900"} ${typeOfBusiness == 'SELL' ? "bg-brand-500 bg-opacity-40" : ""} group flex w-full items-center rounded-md px-2 py-2 font-medium text-sm`}>
                   COMPRAR
                 </button>
               )}
@@ -82,8 +97,9 @@ export function SearchInput() {
             <div className="relative w-full cursor-default overflow-hidden bg-white text-left shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-teal-300 sm:text-sm">
               <Combobox.Input
                 className="w-full border-none py-3 pl-3 pr-10 text-sm leading-5 text-gray-900 focus:ring-0"
-                displayValue={(person: Person) => person.name}
+                displayValue={(city: City) => city.city}
                 onChange={(event) => setQuery(event.target.value)}
+                placeholder='Selecione uma cidade'
               />
               <Combobox.Button className="absolute inset-y-0 right-0 flex items-center pr-2">
                 <ArrowsDownUp size={20} />
@@ -97,20 +113,20 @@ export function SearchInput() {
               afterLeave={() => setQuery('')}
             >
               <Combobox.Options className="absolute mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
-                {filteredPeople.length === 0 && query !== '' ? (
+                {filteredCities.length === 0 && query !== '' ? (
                   <div className="relative cursor-default select-none py-2 px-4 text-gray-700">
                     Nothing found.
                   </div>
                 ) : (
-                  filteredPeople.map((person) => (
+                  filteredCities.map((city, index) => (
                     <Combobox.Option
-                      key={person.id}
+                      key={index}
                       className={({ active }) =>
                         `relative cursor-default select-none py-2 pl-10 pr-4 ${
                           active ? 'bg-brand-500 text-white' : 'text-gray-900'
                         }`
                       }
-                      value={person}
+                      value={city}
                     >
                       {({ selected, active }) => (
                         <>
@@ -119,7 +135,7 @@ export function SearchInput() {
                               selected ? 'font-medium' : 'font-normal'
                             }`}
                           >
-                            {person.name}
+                            {city.city}
                           </span>
                           {selected ? (
                             <span
@@ -148,9 +164,9 @@ export function SearchInput() {
         </Combobox>
       </div>
 
-      <button className="inline-flex w-full md:w-28 items-center justify-center rounded-r-lg md:rounded-r-lg bg-brand-500 px-3 py-3 text-xs md:text-sm font-medium text-white focus:outline-none focus-visible:ring-white focus-visible:ring-opacity-75">
+      <button type='submit' className="inline-flex w-full md:w-28 items-center justify-center rounded-r-lg md:rounded-r-lg bg-brand-500 px-3 py-3 text-xs md:text-sm font-medium text-white focus:outline-none focus-visible:ring-white focus-visible:ring-opacity-75">
         ENVIAR
       </button>
-    </div>
+    </form>
   )
 }

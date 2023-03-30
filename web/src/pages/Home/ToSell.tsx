@@ -1,22 +1,25 @@
 import { House } from "phosphor-react";
 
-import properties from "../mock/properties.json"
-import { PropertyCard } from "../components/PropertyCard";
+import properties from '../../mock/properties.json'
+import { PropertyCard } from "../../components/PropertyCard";
 
-export function Featured() {
+export function ToSell() {
+  const sellProperties = properties.filter(property => property.typeOfBusiness === 'SELL');
+
   return (
     <div className="w-full bg-[#C2C2C2] pt-10">
       <div className="flex justify-center items-center">
         <h1 className="flex justify-center items-center bg-brand-700 rounded-md text-white w-[70vw] h-[5vh] font-bold text-base md:text-xl">
           <House size={28} className="mr-3"/>
-          IMÓVEIS EM DESTAQUE
+          IMÓVEIS PARA COMPRAR
         </h1>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 w-full px-[7vw] gap-y-14 mt-16 place-items-center">
-      {properties.map((property) => {
-        return (
-          <PropertyCard 
+        {sellProperties.map((property) => {
+          return (
+            <PropertyCard 
+            id={Number(property.id)}
             key={property.id}
             title={property.title}
             price_sell={property.price_sell}
@@ -30,8 +33,9 @@ export function Featured() {
             total_area={property.characteristics.total_area}
             images={property.images}
           />
-        )
-      })}
+          )
+        })}
+      
       </div>
     </div>
   )

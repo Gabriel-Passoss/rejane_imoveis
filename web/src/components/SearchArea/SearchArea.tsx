@@ -1,7 +1,7 @@
 import { Navigation, Pagination } from "swiper";
 import { Swiper, SwiperSlide} from "swiper/react";
 
-import { SearchInput } from "../components/SearchInput";
+import { SearchInput } from "./SearchInput";
 
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -9,7 +9,7 @@ import 'swiper/css/pagination';
 
 export function SearchArea() {
   return (
-    <div className="mt-[14vh] md:mt-[20vh] bg-background-body bg-cover flex justify-center items-end">
+    <div className="mt-[14vh] md:mt-[18vh] bg-background-body bg-cover flex justify-center items-end">
       <Swiper 
         modules={[Navigation, Pagination]}
         slidesPerView={1}
@@ -19,21 +19,24 @@ export function SearchArea() {
         className=""
         >
           <SwiperSlide className="flex justify-center">
-            <img src="/slide1.webp" alt="Slide1" className="h-[50vh] md:h-[70vh] w-full md:w-[80vw]" />
+            <img src="/slide1.jpg" alt="Slide1" className="h-[50vh] md:h-[70vh] w-full md:w-[80vw]" />
           </SwiperSlide>
 
           <SwiperSlide className="flex justify-center">
-            <img src="/slide2.webp" alt="Slide2" className="h-[50vh] md:h-[70vh] w-full md:w-[80vw]" />
+            <img src="/slide2.jpg" alt="Slide2" className="h-[50vh] md:h-[70vh] w-full md:w-[80vw]" />
           </SwiperSlide>
 
           <SwiperSlide className="flex justify-center">
-            <img src="/slide3.jpeg" alt="Slide3" className="h-[50vh] md:h-[70vh] w-full md:w-[80vw]" />
+            <img src="/slide3.jpg" alt="Slide2" className="h-[50vh] md:h-[70vh] w-full md:w-[80vw]" />
+          </SwiperSlide>
+
+          <SwiperSlide className="flex justify-center">
+            <img src="/slide4.jpg" alt="Slide2" className="h-[50vh] md:h-[70vh] w-full md:w-[80vw]" />
           </SwiperSlide>
       </Swiper>
-      <div className="absolute w-full flex justify-center mb-12 md:mb-14 z-10">
+      <div className="absolute w-full flex justify-center mb-4 md:mb-6 z-10">
         <SearchInput />
       </div>
     </div>
-      
   )
 }

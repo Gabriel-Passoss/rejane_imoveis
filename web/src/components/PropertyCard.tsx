@@ -1,10 +1,12 @@
-import { Bed, Car, MapPin, Ruler, Shower } from "phosphor-react";
+import { Bed, Car, MapPin, Ruler, Shower, Star } from "phosphor-react";
 import { Pagination } from "swiper";
 import { SwiperSlide, Swiper } from "swiper/react";
 
 import 'swiper/css';
 import 'swiper/css/pagination';
 import { Link } from "react-router-dom";
+import { useContext, useEffect, useState } from "react";
+import { PropertiesContext } from "../contexts/PropertiesContext";
 
 interface Property {
   id: number
@@ -28,10 +30,36 @@ interface Images {
 
 export function PropertyCard(property: Property) {
   const currencyOptions = { style: 'currency', currency: 'BRL' };
+  const [isFavorited, setIsFavorited] = useState(false)
+  const { favoriteProperty, unfavoriteProperty, favoritedProperties } = useContext(PropertiesContext)
+  
+  useEffect(() => {
+    const isFavorited = favoritedProperties.find((id) => id.toString() === property.id.toString())
+    if (isFavorited) {
+      setIsFavorited(true)
+    } else {
+      setIsFavorited(false)
+    }
+  }, [favoritedProperties])
+
+  function handleFavorite() {
+    if(isFavorited) {
+      unfavoriteProperty(property.id)
+    } else {
+      favoriteProperty(property.id)
+    }
+  }
 
   return (
-    <Link className="h-full w-[80vw] md:h-full md:w-[22vw] bg-white rounded-md drop-shadow-lg mb-10 md:hover:scale-105 md:duration-150" to={`/imovel/${property.id}`}>
-      <span className="bg-brand-700 p-1 text-white absolute z-10 top-2 right-2 rounded-md text-sm font-medium flex items-center justify-center">Código: {Number(property.id)}</span>
+    <div className="h-full w-[80vw] md:h-full md:w-[22vw] bg-white rounded-md drop-shadow-lg mb-10 md:hover:scale-105 md:duration-150">
+      <span onClick={handleFavorite} className="cursor-pointer p-1 text-white absolute z-10 top-2 left-2 rounded-md text-sm font-medium flex items-center justify-center">
+        <Star size={20} className="text-yellow-300" weight={isFavorited ? "fill" : "regular"}/>
+      </span>
+
+      <span className="bg-brand-700 p-1 text-white absolute z-10 top-2 right-2 rounded-md text-sm font-medium flex items-center justify-center">
+        Código: {Number(property.id)}
+      </span>
+    
       <Swiper modules={[ Pagination ]} slidesPerView={1} loop={true} pagination={{ dynamicBullets: true }}>
       {property.images.urls.map((image: string, index: number) => {
         return (
@@ -41,6 +69,7 @@ export function PropertyCard(property: Property) {
         )
       })}
       </Swiper>
+      <Link to={`/imovel/${property.id}`}>
       <div className="px-5">
         <h3 className="mt-3 font-medium text-lg md:text-base min-h-[4rem]">{property.title}</h3>
         <span className="flex justify-start items-center mt-1 mb-3 min-h-[4rem] text-zinc-400 md:text-sm">
@@ -69,6 +98,7 @@ export function PropertyCard(property: Property) {
           {`${property.car}`}
         </span>
       </div>
-    </Link>
+      </Link>
+    </div>
   )
 }

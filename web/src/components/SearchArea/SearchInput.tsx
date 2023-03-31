@@ -17,7 +17,6 @@ export function SearchInput() {
   const navigate = useNavigate()
 
   useEffect(() => {
-    console.log('chegou aqui')
    api.get('/cities').then(response => {
     let cities: City[] = []
     response.data.map((city: City) => {

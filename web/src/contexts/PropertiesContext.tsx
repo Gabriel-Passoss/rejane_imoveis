@@ -1,4 +1,4 @@
-import { createContext, useState, ReactNode, useEffect } from 'react'
+import { createContext, useState, ReactNode, useEffect, useReducer } from 'react'
 
 import { api } from '../services/api'
 
@@ -54,7 +54,10 @@ type PropertiesContextData = {
   filterPropertiesByIDAndCities(typeOfBusiness: string, city: string): Promise<void>
   filterProperties(data: FilterPropertiesProps): Promise<void>,
   filterByIDProperty(data: string): Promise<void>,
+  favoriteProperty(id: number): Promise<void>,
+  unfavoriteProperty(id: number): Promise<void>
   properties: Property[],
+  favoritedProperties: string[]
   filteredByIDProperty: Property | undefined
 }
 
@@ -67,8 +70,36 @@ export const PropertiesContext = createContext({} as PropertiesContextData)
 export function PropertiesProvider({ children }: PropertiesProviderProps) {
   const [properties, setProperties] = useState<Property[]>([])
   const [filteredByIDProperty, setFilteredByIDProperty] = useState<Property>()
+  
+  const [favoritedProperties, dispatch] = useReducer((state: string[], action: any) => {
+    switch (action.type) {
+      case 'favorite':
+        localStorage.setItem('@rejane-imoveis:favorites', JSON.stringify([...state, action.payload.id]))
+        return [...state, action.payload.id]
+
+      case 'unfavorite':
+        const newFavoritedProperties = state.filter((item) => item !== action.payload.id)
+        localStorage.setItem('@rejane-imoveis:favorites', JSON.stringify(newFavoritedProperties))
+        state = newFavoritedProperties
+        return state
+
+      case 'readLocalStorage':
+        return JSON.parse(action.payload.favoritedPropertiesStorage)
+    }
+    console.log(state)
+    return state
+  }, [])
 
   useEffect(() => {
+    const favoritedPropertiesStorage = localStorage.getItem('@rejane-imoveis:favorites')
+    if (favoritedPropertiesStorage) {
+      dispatch({
+        type: 'readLocalStorage',
+        payload: {
+          favoritedPropertiesStorage
+        }
+      })
+    }
     async function getAllProperties() {
       const Allproperties = await api.get('/properties')
       setProperties(Allproperties.data)
@@ -118,8 +149,30 @@ export function PropertiesProvider({ children }: PropertiesProviderProps) {
     }
   }
 
+  async function favoriteProperty(id: number) {
+    try {
+      const response = await api.patch(`/favorite/property/${id}`)
+      if (response.status === 204) {
+        dispatch({type: 'favorite', payload: { id }})
+      }
+    } catch (err) {
+      console.log(err)
+    }
+  }
+
+  async function unfavoriteProperty(id: number) {
+    try {
+      const response = await api.patch(`/unfavorite/property/${id}`)
+      if (response.status === 204) {
+        dispatch({type: 'unfavorite', payload: { id }})
+      }
+    } catch (err) {
+      console.log(err)
+    }
+  }
+
   return (
-    <PropertiesContext.Provider value={{ properties, filterPropertiesByIDAndCities, filterProperties, filterByIDProperty, filteredByIDProperty }}>
+    <PropertiesContext.Provider value={{ properties, filterPropertiesByIDAndCities, filterProperties, filterByIDProperty, filteredByIDProperty, favoritedProperties, favoriteProperty, unfavoriteProperty }}>
       {children}
     </PropertiesContext.Provider>
   )

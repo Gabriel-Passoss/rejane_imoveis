@@ -70,7 +70,7 @@ export const PropertiesContext = createContext({} as PropertiesContextData)
 export function PropertiesProvider({ children }: PropertiesProviderProps) {
   const [properties, setProperties] = useState<Property[]>([])
   const [filteredByIDProperty, setFilteredByIDProperty] = useState<Property>()
-  
+
   const [favoritedProperties, dispatch] = useReducer((state: string[], action: any) => {
     switch (action.type) {
       case 'favorite':

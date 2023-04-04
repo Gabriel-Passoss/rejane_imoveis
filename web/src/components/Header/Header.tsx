@@ -54,6 +54,7 @@ export function Header() {
             <Link to="/" className="font-medium whitespace-nowrap text-white hover:text-[1.05rem] duration-200">Inicial</Link>
             <Link to="/quem-somos" className="font-medium whitespace-nowrap text-white hover:text-[1.05rem] duration-200">Quem somos</Link>
             <Link to="/contact" className="font-medium whitespace-nowrap text-white hover:text-[1.05rem] duration-200">Fale conosco</Link>
+            <Link to="/admin" className="font-medium whitespace-nowrap text-white hover:text-[1.05rem] duration-200">Painel administrativo</Link>
           </nav>
       </div>
 

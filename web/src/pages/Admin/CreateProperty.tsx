@@ -1,5 +1,5 @@
 import { zodResolver } from "@hookform/resolvers/zod"
-import { CurrencyDollar, MapPin } from "phosphor-react"
+import { CurrencyDollar, MapPin, PlusCircle, Trash } from "phosphor-react"
 import { useState } from "react"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
@@ -30,22 +30,49 @@ const createPropertySchema = z.object({})
 export function CreateProperty() {
   const [characteristics, setCharacteristics] = useState<string[]>([])
   const [characteristicInputText, setCharacteristicInputText] = useState<string>('')
+  const [photos, setPhotos] = useState<any>([])
+  const [photosPreview, setPhotosPreview] = useState<string[]>([])
   const { register, handleSubmit, formState: { errors } } = useForm<CreatePropertyForm>({
     resolver: zodResolver(createPropertySchema)
   })
 
-  function addCharacteristic(event: any) {
+  function handleAddCharacteristic(event: any) {
     event?.preventDefault()
     setCharacteristics((values) => [...values, characteristicInputText])
   }
+
+  function handleAddFile(event: any) {
+    const files = Array.from(event.target.files)
+    files.map((file: any) => {
+      const photoPreview = URL.createObjectURL(file)
+      setPhotosPreview((photos) => [...photos, photoPreview])
+      setPhotos((photos: any) => [...photos, file])
+    })
+  }
+
+  function handleRemoveFile(index: number) {
+    setPhotosPreview((previewPhotos) => {
+      const newPreviewPhotos = [...previewPhotos]
+      newPreviewPhotos.splice(index, 1)
+      return newPreviewPhotos
+    })
+
+    setPhotos((photos: any) => {
+      const newPhotos = [...photos]
+      newPhotos.splice(index, 1)
+      return newPhotos
+    })
+  }
+
+
   return (
-    <div className="bg-gray-900 w-[100vw] p-3 flex">
-      <h1 className="font-medium text-xl text-white">
+    <div className="bg-gray-900 w-[100vw] p-3 flex md:flex-row flex-col items-center md:items-stretch">
+      <h1 className="font-medium text-xl text-white m-10 md:m-0">
         Cadastrar imóvel
       </h1>
       <div className="flex flex-col items-center justify-center">
-        <div className="bg-gray-800 w-[70vw] h-[80vh] flex">
-          <div className="w-[20vw] flex flex-col items-center py-10 px-5 border-r-[0.5px] border-gray-700 gap-y-5">
+        <div className="bg-gray-800 w-[90vw] md:w-[70vw] md:h-[80vh] flex">
+          <div className="md:w-[20vw] hidden md:flex flex-col items-center py-10 px-5 border-r-[0.5px] border-gray-700 gap-y-5">
             <div className="h-[25vh] w-[12vw] bg-gray-600 rounded-full">
               {/* <img src="/slide1.jpg" alt="" className="h-[25vh] w-[12vw] rounded-full"/> */}
             </div>
@@ -81,9 +108,9 @@ export function CreateProperty() {
           <form className="overflow-scroll">
             <div className="px-10 py-3 flex flex-col gap-10">
               <h2 className="text-3xl text-gray-200 font-medium w-full border-b-[0.5px] border-gray-700 py-3">Geral</h2>
-              <div className="flex gap-4">
-                <input type="text" {...register("title")} placeholder="Nome do imóvel" required className="bg-gray-700 p-2 rounded-lg w-[30vw] text-gray-300 focus:transition-opacity duration-200"/>
-                <select {...register("propertyType")} required className="bg-gray-700 p-2 rounded-lg w-[15vw] text-gray-300 focus:transition-opacity duration-200">
+              <div className="flex flex-col md:flex-row gap-4">
+                <input type="text" {...register("title")} placeholder="Nome do imóvel" required className="bg-gray-700 p-2 rounded-lg w-[70vw] md:w-[30vw] text-gray-300 focus:transition-opacity duration-200"/>
+                <select {...register("propertyType")} required className="bg-gray-700 p-2 rounded-lg w-[70vw] md:w-[15vw] text-gray-300 focus:transition-opacity duration-200">
                   <option value="Tipo do imóvel" disabled selected>Tipo do imóvel</option>
                   <option value="Apartamento">Apartamento</option>
                   <option value="Casa">Casa</option>
@@ -95,7 +122,7 @@ export function CreateProperty() {
                 </select>
               </div>
 
-              <div className="flex justify-between">
+              <div className="flex md:flex-row flex-col md:gap-0 gap-y-5 justify-between">
                 <div className="flex flex-col">
                   <h3 className="text-lg text-gray-200 font-medium">Tipo do negócio</h3>
                   <div className="flex flex-col gap-y-3 px-6 mt-2">
@@ -116,9 +143,9 @@ export function CreateProperty() {
                   </div>              
                 </div>
 
-                <div className="flex items-center gap-x-5">
-                  <input type="text" {...register("createdBy")} placeholder="Quem está cadastrando?" required className="bg-gray-700 p-2 rounded-lg w-[15vw] text-gray-300 focus:transition-opacity duration-200"/>             
-                  <select {...register("category")} required className="bg-gray-700 p-2 rounded-lg w-[15vw] text-gray-300 focus:transition-opacity duration-200">
+                <div className="flex flex-col md:flex-row md:items-center gap-y-5 md:gap-x-5">
+                  <input type="text" {...register("createdBy")} placeholder="Quem está cadastrando?" required className="bg-gray-700 p-2 rounded-lg w-[70vw] md:w-[15vw] text-gray-300 focus:transition-opacity duration-200"/>             
+                  <select {...register("category")} required className="bg-gray-700 p-2 rounded-lg w-[70vw] md:w-[15vw] text-gray-300 focus:transition-opacity duration-200">
                     <option value="Tipo do imóvel" disabled selected>Categoria do imóvel</option>
                     <option value="Residencial">Residencial</option>
                     <option value="Comercial">Comercial</option>
@@ -132,7 +159,7 @@ export function CreateProperty() {
               </div>
 
               <div>
-                <textarea {...register("description")} placeholder="Descrição do imóvel" className="text-gray-300 bg-gray-700 w-full h-[20vh] p-3 resize-none rounded-lg focus:transition-opacity duration-200"/>
+                <textarea {...register("description")} placeholder="Descrição do imóvel" className="text-gray-300 bg-gray-700 w-full h-[20vh] p-3 resize-none rounded-lg focus:transition-opacity duration-200 whitespace-pre-wrap"/>
               </div>
             </div>
             
@@ -151,48 +178,71 @@ export function CreateProperty() {
             </div> */}
 
             <div className="px-10 py-3 flex flex-col gap-10">
-              <h2 className="text-3xl text-gray-200 font-medium w-full border-b-[0.5px] border-gray-700 py-3">Características</h2>
-              <div className="grid grid-cols-4 items-center gap-x-5 gap-y-5 overflow">
-                <input type="number" {...register("bathrooms")} placeholder="Banheiros" required className="bg-gray-700 p-2 rounded-lg w-[7vw] text-gray-300 focus:transition-opacity duration-200"/>
-                <input type="number" {...register("rooms")} placeholder="Quartos" required className="bg-gray-700 p-2 rounded-lg w-[7vw] text-gray-300 focus:transition-opacity duration-200"/>
-                <input type="number" {...register("suites")} placeholder="Suites" required className="bg-gray-700 p-2 rounded-lg w-[7vw] text-gray-300 focus:transition-opacity duration-200"/>
-                <input type="number" {...register("cars")} placeholder="Garagens" required className="bg-gray-700 p-2 rounded-lg w-[7vw] text-gray-300 focus:transition-opacity duration-200"/>
-                <input type="number" {...register("cars")} placeholder="Garagens" required className="bg-gray-700 p-2 rounded-lg w-[7vw] text-gray-300 focus:transition-opacity duration-200"/>
-                <input type="number" {...register("private_area")} placeholder="Área Privativa" required className="bg-gray-700 p-2 rounded-lg w-[7vw] text-gray-300 focus:transition-opacity duration-200"/>
-                <input type="number" {...register("total_area")} placeholder="Área Total" required className="bg-gray-700 p-2 rounded-lg w-[7vw] text-gray-300 focus:transition-opacity duration-200"/>
+              <h2 className="text-2xl md:text-3xl text-gray-200 font-medium w-full border-b-[0.5px] border-gray-700 py-3">Características</h2>
+              <div className="grid grid-cols-2 md:grid-cols-4 items-center md:gap-x-5 gap-y-5 overflow">
+                <input type="number" {...register("bathrooms")} placeholder="Banheiros" required className="bg-gray-700 p-2 rounded-lg w-[33vw] md:w-[7vw] text-gray-300 focus:transition-opacity duration-200"/>
+                <input type="number" {...register("rooms")} placeholder="Quartos" required className="bg-gray-700 p-2 rounded-lg w-[33vw] md:w-[7vw] text-gray-300 focus:transition-opacity duration-200"/>
+                <input type="number" {...register("suites")} placeholder="Suites" required className="bg-gray-700 p-2 rounded-lg w-[33vw] md:w-[7vw] text-gray-300 focus:transition-opacity duration-200"/>
+                <input type="number" {...register("cars")} placeholder="Garagens" required className="bg-gray-700 p-2 rounded-lg w-[33vw] md:w-[7vw] text-gray-300 focus:transition-opacity duration-200"/>
+                <input type="number" {...register("cars")} placeholder="Garagens" required className="bg-gray-700 p-2 rounded-lg w-[33vw] md:w-[7vw] text-gray-300 focus:transition-opacity duration-200"/>
+                <input type="number" {...register("private_area")} placeholder="Área Privativa" required className="bg-gray-700 p-2 rounded-lg w-[33vw] md:w-[7vw] text-gray-300 focus:transition-opacity duration-200"/>
+                <input type="number" {...register("total_area")} placeholder="Área Total" required className="bg-gray-700 p-2 rounded-lg w-[33vw] md:w-[7vw] text-gray-300 focus:transition-opacity duration-200"/>
               </div>
-              <div className="grid grid-cols-10 gap-3">
+              <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
                 {characteristics.map((characteristic) => {
                   return (
-                    <span className="bg-brand-700 p-2 rounded-md text-white text-sm font-medium flex justify-center">{characteristic}</span>
+                    <span className="bg-brand-700 w-[25vw] h-[5vh] md:w-[8vw] md:h-[5vh] md:p-3 rounded-md text-white text-xs font-medium flex justify-center items-center">{characteristic}</span>
                   )
                 })}
               </div>
-              <form action="submit" onSubmit={(event) => addCharacteristic(event)} className="flex items-center">
-                <input type="text" onChange={(event) => setCharacteristicInputText(event.target.value)} placeholder="Características do imóvel/condomínio" required className="bg-gray-700 p-2 rounded-lg w-[35vw] text-gray-300 focus:transition-opacity duration-200"/>
-                <button type="submit" className="ml-3 p-2 bg-brand-500 rounded-md text-white text-sm font-medium">Adicionar</button>
-              </form>
               
+              <div className="flex md:flex-row flex-col gap-y-3 md:gap-0">
+                <input type="text" onChange={(event) => setCharacteristicInputText(event.target.value)} placeholder="Características do imóvel/condomínio" required className="bg-gray-700 p-2 rounded-lg w-[70vw] md:w-[35vw] text-gray-300 focus:transition-opacity duration-200"/>
+                <button onClick={handleAddCharacteristic} className="md:ml-3 p-2 bg-brand-500 rounded-md text-white text-sm font-medium">Adicionar</button>
+              </div>    
             </div>
 
              <div className="px-10 py-3 flex flex-col gap-10">
-              <h2 className="text-3xl text-gray-200 font-medium w-full border-b-[0.5px] border-gray-700 py-3">Localização</h2>
-              <div className="grid grid-cols-2 gap-x-5 gap-y-5">
-                <input type="text" {...register("street")} placeholder="Nome da rua e número" required className="bg-gray-700 p-2 rounded-lg w-[20vw] text-gray-300 focus:transition-opacity duration-200"/>
-                <input type="text" {...register("neighborhood")} placeholder="Nome do bairro" required className="bg-gray-700 p-2 rounded-lg w-[20vw] text-gray-300 focus:transition-opacity duration-200"/>
+              <h2 className="text-2xl md:text-3xl text-gray-200 font-medium w-full border-b-[0.5px] border-gray-700 py-3">Localização</h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-x-5 gap-y-5">
+                <input type="text" {...register("street")} placeholder="Nome da rua e número" required className="bg-gray-700 p-2 rounded-lg w-[70vw] md:w-[20vw] text-gray-300 focus:transition-opacity duration-200"/>
+                <input type="text" {...register("neighborhood")} placeholder="Nome do bairro" required className="bg-gray-700 p-2 rounded-lg w-[70vw] md:w-[20vw] text-gray-300 focus:transition-opacity duration-200"/>
                 
-                <select {...register("city")} required className="bg-gray-700 p-2 rounded-lg w-[20vw] text-gray-300 focus:transition-opacity duration-200">
+                <select {...register("city")} required className="bg-gray-700 p-2 rounded-lg w-[70vw] md:w-[20vw] text-gray-300 focus:transition-opacity duration-200">
                   <option value="Tipo do imóvel" disabled selected>Cidade</option>
                   <option value="Balneário Camboriú">Balneário Camboriú</option>
                 </select>
 
-                <select {...register("state")} required className="bg-gray-700 p-2 rounded-lg w-[10vw] text-gray-300 focus:transition-opacity duration-200">
+                <select {...register("state")} required className="bg-gray-700 p-2 rounded-lg w-[70vw] md:w-[10vw] text-gray-300 focus:transition-opacity duration-200">
                   <option value="Tipo do imóvel" disabled selected>Estado</option>
                   <option value="SC">SC</option>
                 </select>
               </div>
             </div>
             
+            <div className="px-10 py-3 mb-10">
+              <h2 className="text-3xl text-gray-200 font-medium w-full border-b-[0.5px] border-gray-700 py-3">Mídia</h2>
+              <div className="grid grid-cols-2 md:grid-cols-6 mt-5 gap-3">
+                  {photosPreview.map((photo: any, index: number) => {
+                    return (
+                      <div className="relative" key={index}>
+                        <span onClick={() => handleRemoveFile(index)} className="absolute top-1 right-3 cursor-pointer">
+                          <Trash color="red"/>
+                        </span>
+                        <img src={photo} className="w-[30vw] h-[15vh] md:w-[8vw] md:h-[13vh] object-cover"/>
+                      </div>
+                    )
+                  })}
+
+                <div>
+                  <label htmlFor="file" className="border-[2px] border-dashed rounded-lg border-brand-500 flex justify-center items-center w-[30vw] h-[15vh] md:w-[8vw] md:h-[13vh] cursor-pointer">
+                    <PlusCircle size={25} className="text-brand-500"/>
+                  </label>
+                  <input type="file" name="file" id="file" onChange={(event) => handleAddFile(event)} className="hidden" multiple accept="image/*"/>
+                </div>
+              </div>
+            </div>
+
           </form>
         </div>
       </div>

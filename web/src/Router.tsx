@@ -20,9 +20,9 @@ export function Router() {
 
       <Route path="/imovel/:id" element={<PropertyDetail />} />
 
-      <Route path='/admin' element={<AdminLayout />}>
-        <Route path='/admin' element={<ListProperties />}/>
-        <Route path='/admin/criar-imovel' element={<CreateProperty />}/>
+      <Route path='/administrador' element={<AdminLayout />}>
+        <Route path='/administrador' element={<ListProperties />}/>
+        <Route path='/administrador/criar-imovel' element={<CreateProperty />}/>
       </Route>
     </Routes>
   )
